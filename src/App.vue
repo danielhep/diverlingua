@@ -1,11 +1,14 @@
 <template>
-  <div class="flex flex-col h-screen">
-    <nav-bar />
-    <div class="bg-body-bg flex flex-row flex-grow text-text-white h-100">
-      <div>
-        <sidebar />
-      </div>
-      <div />
+  <nav-bar class="h-24 fixed top-0 z-10 w-full" />
+  <div class="bg-body-bg text-text-white fixed pt-24 top-0 bottom-0 h-screen overflow-y-auto">
+    <sidebar />
+  </div>
+  <div class="bg-body-bg pl-64 mt-24 w-full text-text-white">
+    <div class="h-screen">
+      HelloWorld
+    </div>
+    <div class="h-screen">
+      HelloWorld
     </div>
   </div>
 </template>

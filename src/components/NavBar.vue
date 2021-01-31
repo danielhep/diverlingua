@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-navbar-bg relative text-text-white border-gray-100 border-b-2">
+  <div class="bg-navbar-bg  text-text-white border-gray-100 border-b-2">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="flex justify-between items-center md:justify-start md:space-x-10">
         <div class="flex justify-start lg:w-0 lg:flex-1">

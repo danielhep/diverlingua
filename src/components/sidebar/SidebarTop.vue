@@ -1,20 +1,41 @@
 <template>
   <div class="flex flex-col items-center">
-    <div class="w-full circle bg-sidebar-circle font-bold my-5">
-      A1.1
-    </div>
-    <div class="text-3xl font-light">
-      Principante
-    </div>
-    <div class="px-5 my-4">
-      <input
-        type="search"
-        placeholder="Buscar"
-        class="bg-sidebar-search-bg rounded-xl px-5 py-1 w-48"
+    <ul class="w-full text-text-blue border-b-2 py-2 border-text-blue">
+      <li
+        v-for="item in buttons"
+        :key="item.name"
+        class="flex hover:bg-sidebar-bglight items-center pl-2 cursor-pointer py-1 w-full"
       >
-    </div>
+        <svg-icon
+          type="mdi"
+          size="42"
+          class="mx-2"
+          :path="item.icon"
+        />
+        {{ item.name }}
+      </li>
+    </ul>
   </div>
 </template>
+<script>
+import SvgIcon from '@jamescoyle/vue-icon'
+import { mdiEye, mdiRocketLaunchOutline, mdiForum, mdiChevronRight, mdiChevronLeft } from '@mdi/js'
+
+export default {
+  components: { SvgIcon },
+  setup (props) {
+    return {
+      buttons: [
+        { icon: mdiEye, name: 'Ver todo' },
+        { icon: mdiRocketLaunchOutline, name: 'Gramática' },
+        { icon: mdiForum, name: 'Vocabulario' },
+        { icon: mdiChevronRight, name: 'Siguiente' },
+        { icon: mdiChevronLeft, name: 'Anterior' }
+      ]
+    }
+  }
+}
+</script>
 <style scoped>
 .circle
     {
