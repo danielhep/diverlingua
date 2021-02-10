@@ -8,7 +8,8 @@ module.exports = {
           bg: '#101419'
         },
         body: {
-          bg: '#030814'
+          bg: '#030814',
+          bglight: '#cdcdcd'
         },
         sidebar: {
           bg: '#03040A',

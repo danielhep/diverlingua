@@ -66,7 +66,6 @@ export default {
       const svg = d3.select(svgTag.value)
       watchEffect(async () => {
         const { width, height } = resizeState.dimensions
-        // console.log(resizeState.dimensions)
         svg.attr('width', width).attr('height', width)
         svg.select('g').select('circle').attr('r', (width / 2) - options.progressThickness - options.padding)
 
