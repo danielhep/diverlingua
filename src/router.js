@@ -15,7 +15,6 @@ const router = createRouter({
 })
 
 router.beforeEach(async (to, from, next) => {
-  console.log('Hello')
   const requiresAuth = to.matched.some(record => record.meta.auth)
   if (requiresAuth && !await firebase.getCurrentUser()) {
     console.log(await firebase.getCurrentUser())
