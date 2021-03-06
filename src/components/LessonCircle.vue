@@ -33,7 +33,7 @@
 </template>
 <script>
 import * as d3 from 'd3'
-import { onMounted, ref, watchEffect } from 'vue'
+import { onMounted, ref, watchEffect } from 'vue-demi'
 import useResizeObserver from '../use/resizeObserver'
 
 const options = {

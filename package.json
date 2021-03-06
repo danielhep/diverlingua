@@ -8,11 +8,14 @@
   "dependencies": {
     "@jamescoyle/vue-icon": "^0.1.0",
     "@mdi/js": "^5.9.55",
+    "@vue/composition-api": "^1.0.0-rc.3",
     "d3": "^6.3.1",
     "firebase": "^8.2.5",
-    "vue": "^3.0.5",
+    "vue": "^2.6.12",
+    "vue-demi": "^0.7.1",
     "vue-router": "^4",
-    "vue3-click-away": "^1.1.0"
+    "vue3-click-away": "^1.1.0",
+    "vuefire": "^2.2.5"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.0.4",

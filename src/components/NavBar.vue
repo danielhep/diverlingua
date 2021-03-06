@@ -48,7 +48,7 @@
 import firebase from 'firebase/app'
 import SvgIcon from '@jamescoyle/vue-icon'
 import { mdiAccount, mdiVideo, mdiMenu } from '@mdi/js'
-import { ref } from 'vue'
+import { ref } from 'vue-demi'
 import AppDropdown from './dropdown/AppDropdown.vue'
 import AppDropdownList from './dropdown/AppDropdownList.vue'
 
