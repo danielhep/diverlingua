@@ -13,7 +13,7 @@
         </div>
         <div class="flex items-center justify-end flex-grow lg:w-0">
           <div class="text-xl font-bold mx-4">
-            <span v-if="currentUser">Hola, {{ currentUser.email }}</span>
+            <span v-if="currentUser">¡Hola, {{ currentUser.email }}!</span>
             <span v-else>Sign up today!</span>
           </div>
           <app-dropdown>

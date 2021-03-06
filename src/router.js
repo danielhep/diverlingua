@@ -2,11 +2,11 @@ import { createWebHistory, createRouter } from 'vue-router'
 import firebase from 'firebase/app'
 
 const LoginPage = () => import('./views/Login.vue')
-const LessonsPage = () => import('./views/Lessons.vue')
+const AllLessonsPage = () => import('./views/AllLessons.vue')
 
 const routes = [
   { path: '/login', component: LoginPage, meta: { chromeless: true } },
-  { path: '/lessions', component: LessonsPage, meta: { auth: true } }
+  { path: '/lessons', component: AllLessonsPage, meta: { auth: true } }
 ]
 
 const router = createRouter({
