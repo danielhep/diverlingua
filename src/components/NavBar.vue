@@ -20,7 +20,7 @@
             <template #toggler>
               <svg-icon
                 type="mdi"
-                size="46"
+                :size="46"
                 class="mx-2"
                 :path="icons.mdiAccount"
               />
@@ -29,13 +29,13 @@
           </app-dropdown>
           <svg-icon
             type="mdi"
-            size="46"
+            :size="46"
             class="mx-2 text-text-pink"
             :path="icons.mdiVideo"
           />
           <svg-icon
             type="mdi"
-            size="46"
+            :size="46"
             class="mx-2 "
             :path="icons.mdiMenu"
           />

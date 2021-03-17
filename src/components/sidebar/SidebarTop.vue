@@ -8,7 +8,7 @@
       >
         <svg-icon
           type="mdi"
-          size="42"
+          :size="42"
           class="mx-2"
           :path="item.icon"
         />

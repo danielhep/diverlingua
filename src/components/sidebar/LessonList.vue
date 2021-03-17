@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import { useFirestore } from '@vueuse/firebase'
 export default {
   setup (props) {
     return {

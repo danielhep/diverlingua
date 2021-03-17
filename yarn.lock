@@ -483,6 +483,29 @@
   resolved "https://registry.yarnpkg.com/@vue/shared/-/shared-3.0.5.tgz#c131d88bd6713cc4d93b3bb1372edb1983225ff0"
   integrity sha512-gYsNoGkWejBxNO6SNRjOh/xKeZ0H0V+TFzaPzODfBjkAIb0aQgBuixC1brandC/CDJy1wYPwSoYrXpvul7m6yw==
 
+"@vueuse/core@^4.3.4":
+  version "4.3.4"
+  resolved "https://registry.yarnpkg.com/@vueuse/core/-/core-4.3.4.tgz#32dcd4b48536c6b8051495389a259ed1b96e9413"
+  integrity sha512-OKMJNdQltsMu8l9MMQ0qvjKK4kO5x0tHveqn6ypWcSQ/NSSMRcUynbE4G404DM52Adg3aFtgrirXcM4uoM6cjg==
+  dependencies:
+    "@vueuse/shared" "4.3.4"
+    vue-demi latest
+
+"@vueuse/firebase@^4.3.4":
+  version "4.3.4"
+  resolved "https://registry.yarnpkg.com/@vueuse/firebase/-/firebase-4.3.4.tgz#f7898a22b52d44ff4b656d44307ec576d1355468"
+  integrity sha512-wOXMYPHCM3qGEj56TluwKYUjSeE6HU0JezUQj2E16cXz5ygm+kPP5PEWs/x6HIfaVlkqxiiMpKe6GmSCCXlBKQ==
+  dependencies:
+    "@vueuse/shared" "4.3.4"
+    vue-demi latest
+
+"@vueuse/shared@4.3.4":
+  version "4.3.4"
+  resolved "https://registry.yarnpkg.com/@vueuse/shared/-/shared-4.3.4.tgz#fe8e66842da4b7b5005a4a427d673e89f472f958"
+  integrity sha512-O1PxiG8cSD4YQKHJXWAeBVVTJNpBwCse7TkTsMqqLzqOjP2apbncfPzOcYJHVR5NkUXmtvPBIWAQuRavXKmHSw==
+  dependencies:
+    vue-demi latest
+
 abort-controller@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/abort-controller/-/abort-controller-3.0.0.tgz#eaf54d53b62bae4138e809ca225c8439a6efb392"
@@ -3070,6 +3093,11 @@ vite@^2.0.0-beta.65:
     rollup "^2.35.1"
   optionalDependencies:
     fsevents "~2.1.2"
+
+vue-demi@latest:
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.7.1.tgz#e7cf3e70e4c69bc192f4530c2665ce8b289f5dc4"
+  integrity sha512-cJ3QnpcbIqdpeV3NnNgSDwneCJifvHct+6JNvfYn/49geK/uv5VJicZDvyg20guNhz+DZmUHBHyRQTJ32lSC2g==
 
 vue-eslint-parser@^7.4.1:
   version "7.4.1"

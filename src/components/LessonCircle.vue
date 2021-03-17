@@ -35,6 +35,7 @@
 import * as d3 from 'd3'
 import { onMounted, ref, watchEffect } from 'vue'
 import useResizeObserver from '../use/resizeObserver'
+import 'firebase/storage'
 
 const options = {
   progressThickness: 16,
