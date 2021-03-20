@@ -16,7 +16,7 @@
         <lesson-circle
           :progress="40"
           class="w-32 ml-2"
-          :icon-path="chick"
+          :icon-path="lesson.iconURL"
         />
         <p class="pt-2 text-lg font-bold">
           {{ lesson.name }}
@@ -35,21 +35,25 @@ import { useFirestore } from '@vueuse/firebase'
 import { watch, ref } from 'vue'
 
 const db = firebase.firestore()
+const storage = firebase.storage()
 
 export default {
   components: {
     LessonCircle
   },
   setup () {
+    const lessoniconsref = storage.ref('/lessonIcons')
+
     const lessonGroups = useFirestore(db.collection('lesson_groups/').orderBy('order'))
 
     const lessonsByGroup = ref([])
-    watch(lessonGroups, (newGroups) => {
+    watch(lessonGroups, (newGroups) => { // when lessonGroups changes, get the contained lessons
       newGroups.forEach((group, groupInd) => {
         lessonsByGroup.value[groupInd] = []
         group.lessons.forEach(async (lessonDoc) => {
-          const lesson = await lessonDoc.get()
-          lessonsByGroup.value[groupInd].push(lesson.data())
+          const lesson = (await lessonDoc.get()).data()
+          lesson.iconURL = await lessoniconsref.child(`${lesson.icon}.svg`).getDownloadURL()
+          lessonsByGroup.value[groupInd].push(lesson)
         })
       })
     })
