@@ -1,9 +1,24 @@
 module.exports = {
+  plugins: [
+    require('@tailwindcss/aspect-ratio')
+  ],
   purge: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      fontFamily: {
+        display: ['Montserrat']
+      },
+      spacing: {
+        'login-modal-w': '1100px',
+        'login-modal-h': '550px'
+      },
+      backgroundImage: {
+        'login-background': 'url("/login.svg")'
+      },
       colors: {
+        lightGreen: '#77e01b',
+        textGray: '#353535',
         navbar: {
           bg: '#101419'
         },

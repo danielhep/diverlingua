@@ -1,5 +1,6 @@
 <template>
   <div class="bg-navbar-bg  text-text-white border-gray-100 border-b-2">
+    <login-modal />
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="flex justify-between items-center md:justify-start md:space-x-10">
         <div class="flex justify-start lg:w-0 lg:flex-1">
@@ -14,7 +15,7 @@
         <div class="flex items-center justify-end flex-grow lg:w-0">
           <div class="text-xl font-bold mx-4">
             <span v-if="currentUser">¡Hola, {{ currentUser.email }}!</span>
-            <span v-else>Sign up today!</span>
+            <span v-else>Sign Up / Sign In</span>
           </div>
           <app-dropdown>
             <template #toggler>
@@ -51,10 +52,11 @@ import { mdiAccount, mdiVideo, mdiMenu } from '@mdi/js'
 import { ref } from 'vue'
 import AppDropdown from './dropdown/AppDropdown.vue'
 import AppDropdownList from './dropdown/AppDropdownList.vue'
+import LoginModal from './LoginModal.vue'
 
 export default {
   name: 'NavBar',
-  components: { SvgIcon, AppDropdown, AppDropdownList },
+  components: { SvgIcon, AppDropdown, AppDropdownList, LoginModal },
   setup (props) {
     const currentUser = ref(null)
     firebase.auth().onAuthStateChanged(user => { currentUser.value = user })
