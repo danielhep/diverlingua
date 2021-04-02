@@ -1,6 +1,9 @@
 <template>
   <div class="bg-navbar-bg  text-text-white border-gray-100 border-b-2">
-    <login-modal />
+    <login-modal
+      v-if="showLoginModal"
+      @close="showLoginModal = false"
+    />
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="flex justify-between items-center md:justify-start md:space-x-10">
         <div class="flex justify-start lg:w-0 lg:flex-1">
@@ -14,8 +17,12 @@
         </div>
         <div class="flex items-center justify-end flex-grow lg:w-0">
           <div class="text-xl font-bold mx-4">
-            <span v-if="currentUser">¡Hola, {{ currentUser.email }}!</span>
-            <span v-else>Sign Up / Sign In</span>
+            <span v-if="user">¡Hola, {{ user.email }}!</span>
+            <span
+              v-else
+              class="cursor-pointer"
+              @click="showLoginModal = true"
+            >Sign Up / Sign In</span>
           </div>
           <app-dropdown>
             <template #toggler>
@@ -48,6 +55,7 @@
 <script>
 import firebase from 'firebase/app'
 import SvgIcon from '@jamescoyle/vue-icon'
+import { useAuth } from '@vueuse/firebase'
 import { mdiAccount, mdiVideo, mdiMenu } from '@mdi/js'
 import { ref } from 'vue'
 import AppDropdown from './dropdown/AppDropdown.vue'
@@ -58,8 +66,9 @@ export default {
   name: 'NavBar',
   components: { SvgIcon, AppDropdown, AppDropdownList, LoginModal },
   setup (props) {
-    const currentUser = ref(null)
-    firebase.auth().onAuthStateChanged(user => { currentUser.value = user })
+    const showLoginModal = ref(false)
+
+    const { isAuthenticated, user } = useAuth()
 
     const accountOptions = [
       {
@@ -69,7 +78,8 @@ export default {
     ]
 
     return {
-      currentUser,
+      showLoginModal,
+      user,
       accountOptions,
       icons: { mdiAccount, mdiVideo, mdiMenu }
     }

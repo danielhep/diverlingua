@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
+import { MotionPlugin } from '@vueuse/motion'
 import router from './router'
 import App from './App.vue'
 import './index.css'
@@ -20,6 +21,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig)
 
 const app = createApp(App)
+app.use(MotionPlugin)
 app.use(router)
 app.mount('#app')
 
