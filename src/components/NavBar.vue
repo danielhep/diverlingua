@@ -6,7 +6,7 @@
     />
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="flex justify-between items-center md:justify-start md:space-x-10">
-        <div class="flex justify-start lg:w-0 lg:flex-1">
+        <div class="flex justify-start items-center flex-shrink">
           <a href="#">
             <img
               class="w-auto h-24"
@@ -14,9 +14,7 @@
               alt=""
             >
           </a>
-        </div>
-        <div class="flex items-center justify-end flex-grow lg:w-0">
-          <div class="text-xl font-bold mx-4">
+          <div class="text-xl font-display mx-4">
             <span v-if="user">¡Hola, {{ user.email }}!</span>
             <span
               v-else
@@ -24,29 +22,31 @@
               @click="showLoginModal = true"
             >Sign Up / Sign In</span>
           </div>
+        </div>
+        <div class="flex items-center justify-evenly flex-grow lg:w-0">
           <app-dropdown>
             <template #toggler>
-              <svg-icon
-                type="mdi"
-                :size="46"
-                class="mx-2"
-                :path="icons.mdiAccount"
-              />
+              <div class="flex flex-row items-center font-display uppercase text-gray-300 mr-5">
+                <svg-icon
+                  type="mdi"
+                  :size="46"
+                  class="mx-2"
+                  :path="icons.mdiAccount"
+                />
+                User
+              </div>
             </template>
             <app-dropdown-list :items="accountOptions" />
           </app-dropdown>
-          <svg-icon
-            type="mdi"
-            :size="46"
-            class="mx-2 text-text-pink"
-            :path="icons.mdiVideo"
-          />
-          <svg-icon
-            type="mdi"
-            :size="46"
-            class="mx-2 "
-            :path="icons.mdiMenu"
-          />
+          <div class="flex flex-row items-center font-display uppercase text-gray-300">
+            <svg-icon
+              type="mdi"
+              :size="46"
+              class="mx-2 text-text-pink"
+              :path="icons.mdiVideo"
+            />
+            Schedule
+          </div>
         </div>
       </div>
     </div>
@@ -60,7 +60,7 @@ import { mdiAccount, mdiVideo, mdiMenu } from '@mdi/js'
 import { ref } from 'vue'
 import AppDropdown from './dropdown/AppDropdown.vue'
 import AppDropdownList from './dropdown/AppDropdownList.vue'
-import LoginModal from './LoginModal.vue'
+import LoginModal from './users/LoginModal.vue'
 
 export default {
   name: 'NavBar',
