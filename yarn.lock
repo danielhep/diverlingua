@@ -317,6 +317,11 @@
     lodash.camelcase "^4.3.0"
     protobufjs "^6.8.6"
 
+"@headlessui/vue@^0.3.1":
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/@headlessui/vue/-/vue-0.3.1.tgz#aeb6224664cec4825e18c123b422fd45977b97d4"
+  integrity sha512-FG/EWA9+yVOMAnVpa5ziFgaWJ16eGkMy3IJbClzCQAFL4aAHgBlAfeQqIt9d9ND4khlLMdWLQft01XvBkSFccQ==
+
 "@jamescoyle/vue-icon@^0.1.0":
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/@jamescoyle/vue-icon/-/vue-icon-0.1.0.tgz#e18c77d25cdefe13037ee03b052ee76884c41572"
