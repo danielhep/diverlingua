@@ -15,19 +15,34 @@
             >
           </a>
         </div>
-        <div class="flex items-center justify-evenly flex-grow lg:w-0">
-          <user-menu-dropdown />
-          <div class="flex flex-row items-center font-display uppercase text-gray-300">
+        <div
+          class="flex items-center justify-evenly flex-grow lg:w-0"
+          v-if="isAuthenticated"
+        >
+          <div
+            class="flex flex-row items-center font-display uppercase text-gray-300 cursor-pointer px-3 py-2 hover:bg-black bg-opacity-30 rounded-lg"
+            @click="router.push('lessons')"
+          >
             <svg-icon
               type="mdi"
               :size="46"
-              class="mx-2 text-text-pink"
+              class="mr-2 text-text-pink"
+              :path="icons.mdiChairSchool"
+            />
+            Lessons
+          </div>
+          <user-menu-dropdown />
+          <div class="flex flex-row items-center font-display uppercase text-gray-300  px-3 py-2 rounded-lg hover:bg-black bg-opacity-30 rounded-lg0">
+            <svg-icon
+              type="mdi"
+              :size="46"
+              class="mr-2 text-text-pink"
               :path="icons.mdiVideo"
             />
             Schedule
           </div>
         </div>
-        <div class="flex justify-start items-center flex-shrink">
+        <div class="flex justify-start items-center flex-shrink px-3 py-2 hover:bg-black bg-opacity-30 rounded-lg0">
           <div class="text-xl font-display mx-4">
             <span v-if="user">¡Hola, {{ user.email }}!</span>
             <span
@@ -45,10 +60,11 @@
 import firebase from 'firebase/app'
 import SvgIcon from '@jamescoyle/vue-icon'
 import { useAuth } from '@vueuse/firebase'
-import { mdiAccount, mdiVideo, mdiMenu } from '@mdi/js'
+import { mdiAccount, mdiVideo, mdiMenu, mdiChairSchool } from '@mdi/js'
 import { ref } from 'vue'
 import LoginModal from './users/LoginModal.vue'
 import UserMenuDropdown from './dropdown/UserMenuDropdown.vue'
+import router from '../router'
 
 export default {
   name: 'NavBar',
@@ -72,8 +88,10 @@ export default {
     return {
       showLoginModal,
       user,
+      isAuthenticated,
       accountOptions,
-      icons: { mdiAccount, mdiVideo, mdiMenu }
+      router,
+      icons: { mdiAccount, mdiVideo, mdiMenu, mdiChairSchool }
     }
   }
 }

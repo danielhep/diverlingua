@@ -3,11 +3,11 @@
     as="div"
     class="relative text-black"
   >
-    <MenuButton class="flex flex-row items-center h-full font-display uppercase text-gray-300 mr-5">
+    <MenuButton class="flex flex-row items-center h-full font-display uppercase text-gray-300 rounded-lg mr-5 px-3 py-2 hover:bg-black bg-opacity-30 rounded-lg0">
       <svg-icon
         type="mdi"
         :size="46"
-        class="mx-2"
+        class="mr-2"
         :path="icons.mdiAccount"
       />
       User
@@ -43,6 +43,18 @@
               Account settings
             </a>
           </MenuItem>
+          <MenuItem v-slot="{ active }">
+            <a
+              href="#account-settings"
+              :class="
+                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700'
+              "
+              class="flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"
+              @click="signOut()"
+            >
+              Sign Out
+            </a>
+          </MenuItem>
         </div>
       </MenuItems>
     </transition>
@@ -54,6 +66,8 @@ import SvgIcon from '@jamescoyle/vue-icon'
 import { useAuth } from '@vueuse/firebase'
 
 import { mdiAccount, mdiVideo, mdiMenu } from '@mdi/js'
+import firebase from 'firebase/app'
+import router from '../../router'
 
 export default {
   components: {
@@ -67,6 +81,10 @@ export default {
     const { isAuthenticated, user } = useAuth()
     return {
       user,
+      signOut () {
+        firebase.auth().signOut()
+        router.push('home')
+      },
       icons: { mdiAccount, mdiVideo, mdiMenu }
     }
   }
