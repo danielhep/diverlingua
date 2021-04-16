@@ -32,7 +32,7 @@
             Lessons
           </div>
           <user-menu-dropdown />
-          <div class="flex flex-row items-center font-display uppercase text-gray-300  px-3 py-2 rounded-lg hover:bg-black bg-opacity-30 rounded-lg0">
+          <div class="flex flex-row items-center font-display uppercase text-gray-300  px-3 py-2 hover:bg-black bg-opacity-30 rounded-lg">
             <svg-icon
               type="mdi"
               :size="46"
@@ -42,8 +42,8 @@
             Schedule
           </div>
         </div>
-        <div class="flex justify-start items-center flex-shrink px-3 py-2 hover:bg-black bg-opacity-30 rounded-lg0">
-          <div class="text-xl font-display mx-4">
+        <div class="flex justify-start items-center flex-shrink px-3 py-2 hover:bg-black bg-opacity-30 rounded-lg">
+          <div class="text-xl font-display">
             <span v-if="user">¡Hola, {{ user.email }}!</span>
             <span
               v-else
