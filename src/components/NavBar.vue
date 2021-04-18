@@ -44,7 +44,7 @@
         </div>
         <div class="flex justify-start items-center flex-shrink px-3 py-2 hover:bg-black bg-opacity-30 rounded-lg">
           <div class="text-xl font-display">
-            <span v-if="user">¡Hola, {{ user.email }}!</span>
+            <span v-if="user">¡Hola, {{ user.displayName }}!</span>
             <span
               v-else
               class="cursor-pointer"

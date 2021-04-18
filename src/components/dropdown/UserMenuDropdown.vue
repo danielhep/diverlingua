@@ -34,18 +34,17 @@
         <div class="py-1">
           <MenuItem v-slot="{ active }">
             <a
-              href="#account-settings"
               :class="
                 active ? 'bg-gray-100 text-gray-900' : 'text-gray-700'
               "
-              class="flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"
+              class="flex justify-between w-full px-4 py-2 text-sm leading-5 text-left cursor-pointer"
+              @click="router.push('account')"
             >
               Account settings
             </a>
           </MenuItem>
           <MenuItem v-slot="{ active }">
             <a
-              href="#account-settings"
               :class="
                 active ? 'bg-gray-100 text-gray-900' : 'text-gray-700'
               "
@@ -81,6 +80,7 @@ export default {
     const { isAuthenticated, user } = useAuth()
     return {
       user,
+      router,
       signOut () {
         firebase.auth().signOut()
         router.push('home')

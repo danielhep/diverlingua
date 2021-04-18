@@ -4,10 +4,12 @@ import { useAuth } from '@vueuse/firebase'
 
 const AllLessonsPage = () => import('./views/AllLessons.vue')
 const LoginPage = () => import('./views/Login.vue')
+const AccountPage = () => import('./views/Account.vue')
 
 const routes = [
   { name: 'lessons', path: '/lessons', component: AllLessonsPage, meta: { auth: true } },
-  { name: 'login', path: '/login', component: LoginPage }
+  { name: 'login', path: '/login', component: LoginPage },
+  { name: 'account', path: '/account', component: AccountPage, meta: { auth: true } }
 ]
 
 const router = createRouter({
