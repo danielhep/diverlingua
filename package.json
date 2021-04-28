@@ -32,7 +32,7 @@
     "postcss": "^8.2.4",
     "standard": "^16.0.3",
     "tailwindcss": "^2.0.2",
-    "vite": "^2.0.0-beta.65",
+    "vite": "^2.2.3",
     "vite-plugin-fonts": "^0.2.0"
   }
 }
