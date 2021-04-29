@@ -505,13 +505,13 @@
     "@vueuse/shared" "4.9.0"
     vue-demi latest
 
-"@vueuse/firebase@^4.3.4":
-  version "4.3.4"
-  resolved "https://registry.yarnpkg.com/@vueuse/firebase/-/firebase-4.3.4.tgz#f7898a22b52d44ff4b656d44307ec576d1355468"
-  integrity sha512-wOXMYPHCM3qGEj56TluwKYUjSeE6HU0JezUQj2E16cXz5ygm+kPP5PEWs/x6HIfaVlkqxiiMpKe6GmSCCXlBKQ==
+"@vueuse/firebase@^4.9.1":
+  version "4.9.1"
+  resolved "https://registry.yarnpkg.com/@vueuse/firebase/-/firebase-4.9.1.tgz#547e7c9c9e6ae3522738655522be2a5857f76863"
+  integrity sha512-NaF/MKt0SnrXx+PBrzMFSxmJRJRXeMuoRZ5tpB5+C+KQ6isO1Ga4CFFffGTa85sARvX20NsLc2lKCPVjHZQbzg==
   dependencies:
-    "@vueuse/shared" "4.3.4"
-    vue-demi latest
+    "@vueuse/shared" "4.9.1"
+    vue-demi "*"
 
 "@vueuse/motion@^1.5.3":
   version "1.5.3"
@@ -522,19 +522,19 @@
     popmotion "^9.3.5"
     vue-demi "0.7.4"
 
-"@vueuse/shared@4.3.4":
-  version "4.3.4"
-  resolved "https://registry.yarnpkg.com/@vueuse/shared/-/shared-4.3.4.tgz#fe8e66842da4b7b5005a4a427d673e89f472f958"
-  integrity sha512-O1PxiG8cSD4YQKHJXWAeBVVTJNpBwCse7TkTsMqqLzqOjP2apbncfPzOcYJHVR5NkUXmtvPBIWAQuRavXKmHSw==
-  dependencies:
-    vue-demi latest
-
 "@vueuse/shared@4.9.0":
   version "4.9.0"
   resolved "https://registry.yarnpkg.com/@vueuse/shared/-/shared-4.9.0.tgz#efc36ed36a6148b794538675309038bdf3df9701"
   integrity sha512-u5bSe39llw2DjGerZjFK/jv04sF3G1BX5t4aRat1s+9hzm8mEB55uorqA3VxCgTFMNyc0sactZhj6YIzYdG0dg==
   dependencies:
     vue-demi latest
+
+"@vueuse/shared@4.9.1":
+  version "4.9.1"
+  resolved "https://registry.yarnpkg.com/@vueuse/shared/-/shared-4.9.1.tgz#ff3fa7c35f77a1f30e7c568de9113fc42bfb4019"
+  integrity sha512-5jj+/Ve7e82LP4OFpU8jBRhjC7QGUxI95U2m4bB2BGuWA8v6r2EVV7AVkU/rXZ5EvRoYkAnUs8jWRCj0QlD6XQ==
+  dependencies:
+    vue-demi "*"
 
 abort-controller@^3.0.0:
   version "3.0.0"
@@ -3141,6 +3141,11 @@ vite@^2.2.3:
     rollup "^2.38.5"
   optionalDependencies:
     fsevents "~2.3.1"
+
+vue-demi@*:
+  version "0.7.5"
+  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.7.5.tgz#88dee7492fc99a0f911ff03fc02c658fa2a79af8"
+  integrity sha512-eFSQSvbQdY7C9ujOzvM6tn7XxwLjn0VQDXQsiYBLBwf28Na+2nTQR4BBBcomhmdP6mmHlBKAwarq6a0BPG87hQ==
 
 vue-demi@0.7.4:
   version "0.7.4"
