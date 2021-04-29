@@ -13,7 +13,7 @@
     "@tailwindcss/aspect-ratio": "^0.2.0",
     "@vueuse/core": "^4.3.4",
     "@vueuse/firebase": "^4.3.4",
-    "@vueuse/motion": "^1.5.3",
+    "@vueuse/motion": "^1.5.4",
     "d3": "^6.3.1",
     "firebase": "^8.2.5",
     "vue": "^3.0.11",
