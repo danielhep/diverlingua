@@ -6,7 +6,7 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@headlessui/vue": "^0.3.1",
+    "@headlessui/vue": "^1.1.1",
     "@jamescoyle/vue-icon": "^0.1.0",
     "@mdi/js": "^5.9.55",
     "@saeris/vue-spinners": "^1.0.8",
