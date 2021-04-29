@@ -3156,10 +3156,10 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
 
-vite-plugin-fonts@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/vite-plugin-fonts/-/vite-plugin-fonts-0.2.0.tgz#9c2a11ed555f9a20293d1f0aae5766187792d0ea"
-  integrity sha512-4ViyUA6qAJ6N/4bZ/QvrHEziSrxCMZohA5fPTofEH/qEytGSw34+7XPEvPjLLubSGe25Xmq/a9K1JFt8yD64RQ==
+vite-plugin-fonts@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/vite-plugin-fonts/-/vite-plugin-fonts-0.2.2.tgz#48cda78f5ad36907f3de497fa418ffd2b8f2ca83"
+  integrity sha512-fhzhsrTiuzlDjSO6g5sV5EVIIvbb8lmsaIY6eUTBM4lcF55x40UBpHrcyvNwIhQG211g0lu83XC7oZlkmvdkMA==
 
 vite@^2.2.3:
   version "2.2.3"
