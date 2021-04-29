@@ -12,7 +12,7 @@
     "@saeris/vue-spinners": "^1.0.8",
     "@tailwindcss/aspect-ratio": "^0.2.0",
     "@vueuse/core": "^4.9.0",
-    "@vueuse/firebase": "^4.3.4",
+    "@vueuse/firebase": "^4.9.1",
     "@vueuse/motion": "^1.5.3",
     "d3": "^6.3.1",
     "firebase": "^8.4.3",
