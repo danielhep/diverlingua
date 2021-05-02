@@ -4,7 +4,7 @@ import { useAuth } from '@vueuse/firebase'
 
 const AllLessonsPage = () => import('./views/AllLessons.vue')
 const LoginPage = () => import('./views/Login.vue')
-const AccountPage = () => import('./views/Account.vue')
+const AccountPage = () => import('./views/Settings.vue')
 
 const routes = [
   { name: 'lessons', path: '/lessons', component: AllLessonsPage, meta: { auth: true } },
@@ -22,7 +22,6 @@ router.beforeEach(async (to, from, next) => {
   const requiresAuth = to.matched.some(record => record.meta.auth)
   if (requiresAuth && !await firebase.getCurrentUser()) {
     console.log(await firebase.getCurrentUser())
-    alert('log in please')
     next({
       path: '/login'
     })

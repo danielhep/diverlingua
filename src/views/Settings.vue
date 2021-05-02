@@ -43,7 +43,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 li {
   @apply py-2 px-2 my-1 hover:bg-gray-800 rounded cursor-pointer;
 }

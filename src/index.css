@@ -24,10 +24,6 @@
   }
 }
 
-.input-text {
-  @apply outline-none inline-block rounded-xl my-1 p-2 text-black bg-gray-100 shadow-md border-transparent border-2 focus:bg-white focus:border-gray-400;
-}
-
 .loader,
 .loader:after {
   border-radius: 50%;

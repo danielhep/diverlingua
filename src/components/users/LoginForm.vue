@@ -9,12 +9,14 @@
     v-else
     @submit.prevent="signIn()"
   >
-    <div
-      v-if="error"
-      class="font-bold mb-3"
-    >
-      {{ error }}
-    </div>
+    <alert-box
+      type="alert"
+      :messages="Object.values(warnings)"
+    />
+    <alert-box
+      type="error"
+      :messages="Object.values(errors)"
+    />
     <label
       for="uname"
       class="font-semibold mt-1"
@@ -71,41 +73,54 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, toRef } from 'vue'
 import router from '../../router'
 import GoogleButton from '../misc/googleSignIn.vue'
 import FacebookButton from '../misc/facebookSignIn.vue'
+import AlertBox from '../misc/AlertBox.vue'
 import firebase from 'firebase'
 
 export default {
-  components: { GoogleButton, FacebookButton },
+  components: { GoogleButton, FacebookButton, AlertBox },
+  props: { reauth: Boolean },
   emits: ['loggedIn'],
   setup (props, context) {
     const email = ref()
     const password = ref()
-    const error = ref('')
+    const errors = ref({})
+    const warnings = ref({})
     const loading = ref(false)
+    const reauth = toRef(props, 'reauth')
 
-    const signIn = async () => {
+    console.log(reauth.value)
+    if (reauth.value) {
+      warnings.value.reauth = 'Please reauthorize your account.'
+    }
+
+    const useSignIn = async (credential) => {
       try {
         loading.value = true
-        await firebase.auth().signInWithEmailAndPassword(email.value, password.value)
+        await firebase.auth().signInWithCredential(credential)
         context.emit('loggedIn')
         router.push('lessons')
       } catch (e) {
-        // console.log(e)
         if (e.code === 'auth/wrong-password') {
-          error.value = 'Incorrect password'
+          errors.value.authError = 'Incorrect password'
         } else if (e.code === 'auth/invalid-email') {
-          error.value = 'That doesn\'t look like an email address.'
+          errors.value.authError = 'That doesn\'t look like an email address.'
         } else if (e.code === 'auth/user-not-found') {
-          error.value = 'No account found with that email. Make an account?' // TODO: Make account?
+          errors.value.authError = 'No account found with that email. Make an account?' // TODO: Make account?
         } else if (e.code === 'auth/user-disabled') {
-          error.value = 'Your account is disabled.'
+          errors.value.authError = 'Your account is disabled.'
         }
       } finally {
         loading.value = false
       }
+    }
+
+    const signIn = () => {
+      const cred = firebase.auth.EmailAuthProvider.credential(email.value, password.value)
+      useSignIn(cred)
     }
 
     const signInWithGoogle = async () => {
@@ -124,7 +139,7 @@ export default {
       }
     }
 
-    return { signInWithGoogle, signIn, error, email, password, loading }
+    return { signInWithGoogle, signIn, errors, warnings, email, password, loading }
   }
 }
 </script>

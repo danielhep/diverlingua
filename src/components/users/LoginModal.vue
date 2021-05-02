@@ -17,6 +17,7 @@
       >
       <login-form
         @loggedIn="$emit('close')"
+        :reauth="reauth"
       />
     </div>
   </div>
@@ -30,6 +31,7 @@ import LoginForm from './LoginForm.vue'
 export default {
   components: { LoginForm },
   emits: ['close'],
+  props: ['reauth'],
   setup (props, context) {
     const modalRef = ref(null)
 
