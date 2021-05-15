@@ -1,5 +1,8 @@
 <template>
-  <div class="bg-sidebar-bg w-64 h-full flex flex-col items-center">
+  <nav
+    class="bg-gray-800 w-64 h-full flex flex-col items-center"
+    aria-label="Sidebar"
+  >
     <sidebar-top class="w-full" />
     <div class="m-6 flex flex-col items-center">
       <lesson-circle
@@ -7,26 +10,10 @@
         :icon-path="chicken"
       />
       <p class="pt-2 text-lg font-bold">
-        Artículos
+        {{ name }}
       </p>
     </div>
-    <div class="flex flex-col items-start bg-sidebar-bglight w-full">
-      <div
-        class="flex flex-row items-center w-full pt-4"
-        v-for="lesson in lessons"
-        :key="lesson.name"
-      >
-        <lesson-circle
-          :progress="lesson.progress"
-          class="w-32 ml-2"
-          :icon-path="lesson.icon"
-        />
-        <p class="ml-2 pt-2 text-lg">
-          {{ lesson.name }}
-        </p>
-      </div>
-    </div>
-  </div>
+  </nav>
 </template>
 
 <script>
@@ -36,6 +23,7 @@ import SidebarTop from './SidebarTop.vue'
 import LessonCircle from '../LessonCircle.vue'
 export default {
   components: { SidebarTop, LessonCircle },
+  props: { name: String },
   setup () {
     return {
       chicken,

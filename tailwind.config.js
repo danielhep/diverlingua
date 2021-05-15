@@ -17,6 +17,10 @@ module.exports = {
         'login-background': 'url("/login.svg")'
       },
       colors: {
+        diverlingua: {
+          lightBlue: '#009BD1',
+          purple: '#A6239E'
+        },
         lightGreen: '#77e01b',
         textGray: '#353535',
         navbar: {

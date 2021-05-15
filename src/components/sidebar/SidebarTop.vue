@@ -1,10 +1,10 @@
 <template>
   <div class="flex flex-col items-center">
-    <ul class="w-full text-text-blue border-b-2 py-2 border-text-blue">
+    <ul class="self-stretch text-text-blue border-b-2 py-2 border-text-blue flex-1 space-y-1">
       <li
         v-for="item in buttons"
         :key="item.name"
-        class="flex hover:bg-sidebar-bglight items-center pl-2 cursor-pointer py-1 w-full"
+        class="flex items-center py-2 text-sm bg-gray-900 font-medium rounded-md cursor-pointer text-indigo-100 hover:bg-opacity-75"
       >
         <svg-icon
           type="mdi"
@@ -19,7 +19,7 @@
 </template>
 <script>
 import SvgIcon from '@jamescoyle/vue-icon'
-import { mdiEye, mdiRocketLaunchOutline, mdiForum, mdiChevronRight, mdiChevronLeft } from '@mdi/js'
+import { mdiEye, mdiChevronRight, mdiChevronLeft } from '@mdi/js'
 
 export default {
   components: { SvgIcon },
@@ -27,8 +27,6 @@ export default {
     return {
       buttons: [
         { icon: mdiEye, name: 'Ver todo' },
-        { icon: mdiRocketLaunchOutline, name: 'Gramática' },
-        { icon: mdiForum, name: 'Vocabulario' },
         { icon: mdiChevronRight, name: 'Siguiente' },
         { icon: mdiChevronLeft, name: 'Anterior' }
       ]

@@ -9,7 +9,8 @@ const AccountPage = () => import('./views/Settings.vue')
 const routes = [
   { name: 'lessons', path: '/lessons', component: AllLessonsPage, meta: { auth: true } },
   { name: 'login', path: '/login', component: LoginPage },
-  { name: 'account', path: '/account', component: AccountPage, meta: { auth: true } }
+  { name: 'account', path: '/account', component: AccountPage, meta: { auth: true } },
+  { name: 'lesson', path: '/lesson/:id', component: () => import('./views/Lesson.vue'), meta: { auth: true } }
 ]
 
 const router = createRouter({
@@ -18,7 +19,6 @@ const router = createRouter({
 })
 
 router.beforeEach(async (to, from, next) => {
-  const { isAuthenticated, user } = useAuth()
   const requiresAuth = to.matched.some(record => record.meta.auth)
   if (requiresAuth && !await firebase.getCurrentUser()) {
     console.log(await firebase.getCurrentUser())
