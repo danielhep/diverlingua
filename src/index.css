@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+
+@layer base {
+  @font-face {
+    font-family: 'Montserrat', sans-serif;
+    src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap');
+  }
+}
+
+
 @responsive {
   .text-shadow-thin {
     text-shadow: 1px 1px 0 rgba(0,0,0,0.40);
@@ -65,4 +76,29 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+/* /////////Base Color /////// */
+.pt-color{
+  color: #ffffff;
+}
+
+.st-color{
+  color: #E2E3E5;
+}
+
+.main-title{
+  font-size: 2.6rem;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.sech-title{
+  font-size: 1.8rem;
+  line-height: 2;
+  font-weight: 100;
+}
+
+
 

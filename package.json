@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "vite build"
+    "build": "vite build",
+    "compile:sass": "node-sass 'your main scss file location' 'your compiled css file location' -w"
   },
   "dependencies": {
     "@headlessui/vue": "^0.3.1",

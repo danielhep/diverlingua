@@ -1,24 +1,22 @@
 <template>
-  <nav-bar
-    class="h-24 fixed top-0 z-10 w-full"
-    v-if="!route.meta.chromeless"
-  />
+  <nav-bar class="h-24 fixed top-0 z-10 w-full" v-if="!route.meta.chromeless" />
   <div
-    :class="!route.meta.chromeless ? 'bg-body-bg mt-24 w-full text-text-white' : ''"
+    :class="
+      !route.meta.chromeless ? 'bg-body-bg mt-24 w-full text-text-white' : ''
+    "
   >
     <router-view />
   </div>
 </template>
 
 <script setup>
-import { useRoute } from 'vue-router'
-import NavBar from './components/NavBar.vue'
+import { useRoute } from "vue-router";
+import NavBar from "./components/NavBar.vue";
 
-const route = useRoute()
-
+const route = useRoute();
 </script>
 
-<style>
+<style >
 #app {
   height: 100%;
 }
