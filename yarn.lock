@@ -345,10 +345,10 @@
     lodash.camelcase "^4.3.0"
     protobufjs "^6.8.6"
 
-"@headlessui/vue@^0.3.1":
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/@headlessui/vue/-/vue-0.3.1.tgz#aeb6224664cec4825e18c123b422fd45977b97d4"
-  integrity sha512-FG/EWA9+yVOMAnVpa5ziFgaWJ16eGkMy3IJbClzCQAFL4aAHgBlAfeQqIt9d9ND4khlLMdWLQft01XvBkSFccQ==
+"@headlessui/vue@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@headlessui/vue/-/vue-1.2.0.tgz#941ccc8629b11eaa10c09009dad6e3f6cbdc2c79"
+  integrity sha512-nATOiQyGik8qoGFnWdWDaMWlpBLBaybhsa4drUoz/vMggw2fmXqzilAfMXHDwvqzh35SkSb13BEWA8kUSUNgkg==
 
 "@heroicons/vue@^1.0.1":
   version "1.0.1"
