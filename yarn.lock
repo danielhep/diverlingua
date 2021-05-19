@@ -572,13 +572,13 @@
     "@vueuse/shared" "4.11.0"
     vue-demi "*"
 
-"@vueuse/firebase@^4.3.4":
-  version "4.8.2"
-  resolved "https://registry.yarnpkg.com/@vueuse/firebase/-/firebase-4.8.2.tgz#f51783452593a977ee5029cd1ba3f3c6b7b36e54"
-  integrity sha512-cg3lFB9OoGQyMfWtOa9hkL+Cjp5iTv5RSXoDi8dW0sJOun3NKuwZ9Ou/SnZCrFmWPfPP+0xZaEJUkb0l2ATiog==
+"@vueuse/firebase@^4.11.0":
+  version "4.11.0"
+  resolved "https://registry.yarnpkg.com/@vueuse/firebase/-/firebase-4.11.0.tgz#97314f2c37190dc36e633baee616a93c6f7c2ac3"
+  integrity sha512-0dqq52c8KKT1MGzEdDO5zeTyEdmmO3iNWH6J6AcRvjMRDvFmWlSFDIjIZ+orvFO0FbytM1zqOtJJJfVPNzMFow==
   dependencies:
-    "@vueuse/shared" "4.8.2"
-    vue-demi latest
+    "@vueuse/shared" "4.11.0"
+    vue-demi "*"
 
 "@vueuse/motion@^1.5.5":
   version "1.5.5"
@@ -595,13 +595,6 @@
   integrity sha512-WKyOxTWuAiOLTp9Eg6RYabtZBSiJyt9EgFZEMD8fSlZ1FAckg0Ntya3HLfTDkPBjOqVe3pMdOsAbLwsU+7Fwyw==
   dependencies:
     vue-demi "*"
-
-"@vueuse/shared@4.8.2":
-  version "4.8.2"
-  resolved "https://registry.yarnpkg.com/@vueuse/shared/-/shared-4.8.2.tgz#7c9a738ddba9b60b3eb2e6702d657c2b4c94651c"
-  integrity sha512-Bjy15IHyqUpRbg9cRE9afFwD0gLtGI0tJW7fITWGCwYmSWpBoD+EnGBBGvnoP9pOtxkri9Wte/uKwcVnDos7QA==
-  dependencies:
-    vue-demi latest
 
 abort-controller@^3.0.0:
   version "3.0.0"
@@ -3473,7 +3466,7 @@ vue-demi@*:
   resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.9.0.tgz#b30da61450079d60a132d7aaf9e86d1949e8445e"
   integrity sha512-f8vVUpC726YXv99fF/3zHaw5CUYbP5H/DVWBN+pncXM8P2Uz88kkffwj9yD7MukuVzPICDHNrgS3VC2ursaP7g==
 
-vue-demi@0.7.4, vue-demi@latest:
+vue-demi@0.7.4:
   version "0.7.4"
   resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.7.4.tgz#4c6be525788e1f6b3fd5d4f5f9f2148cf6645979"
   integrity sha512-PT0qzI9Rp8R8eUAsTPXADC+KAZdrMufmbZqEMMqvaiesWyjCpgyuuvS5Su8cvBjK9RevLT/YfFiKWxc8YB9/8g==
