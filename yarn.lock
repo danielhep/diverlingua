@@ -580,10 +580,10 @@
     "@vueuse/shared" "4.8.2"
     vue-demi latest
 
-"@vueuse/motion@^1.5.3":
-  version "1.5.4"
-  resolved "https://registry.yarnpkg.com/@vueuse/motion/-/motion-1.5.4.tgz#ab5eb0de143a664f217f93ecf059cd6404246536"
-  integrity sha512-hSGnVOzzXfp9q9WMDYZImckQCp5BZb6WM1kq+pOZHhLolPt9JqPnK/gImIE/xU27bKZwjE8PeTTcIhCC18xwmQ==
+"@vueuse/motion@^1.5.5":
+  version "1.5.5"
+  resolved "https://registry.yarnpkg.com/@vueuse/motion/-/motion-1.5.5.tgz#e20cad0252df9b826e53634a430541d3982663ee"
+  integrity sha512-d1IgX33owiYPbnCGpAX6MT3YT2ZV5jN0IplbBF1AvScg93Q4eKLwWiroxVlCUxnDAuzyzFtOdkcXfWrjeP9+ow==
   dependencies:
     "@vueuse/core" "^4.7.0"
     popmotion "^9.3.5"
