@@ -45,8 +45,15 @@ module.exports = {
           pink: '#FF3366',
           blue: '#00A2CE',
           purple: '#5B00EC'
-        }
-      }
+        },
+        
+      },
+      fontSize: {
+        '4xl': '2.6rem'
+      },
+      maxWidth: {
+        '2xl': '43.5rem'
+       }
     }
   },
   variants: {

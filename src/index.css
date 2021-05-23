@@ -89,15 +89,23 @@
 }
 
 .main-title{
-  font-size: 2.6rem;
+  /* font-size: 2.6rem; */
   line-height: 1.4;
   font-weight: 500;
 }
 
 .sech-title{
-  font-size: 1.8rem;
+  /* font-size: 1.8rem; */
   line-height: 2;
   font-weight: 100;
+}
+
+.b-rad{
+  border-radius: 2.25rem;
+}
+
+.copy-bg{
+  background-color: #261A43;
 }
 
 
