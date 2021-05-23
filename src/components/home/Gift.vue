@@ -1,7 +1,7 @@
 <template>
   <div class="gift">
     <div class="notice-part">
-      <h2 class="g-notice-text font-display">
+      <h2 class="g-notice-text text-4xl max-w-2xl font-display">
         <span>{{ mainTxt }}</span> {{ thinTxt }}
       </h2>
     </div>
@@ -43,10 +43,10 @@ export default {
 }
 
 .g-notice-text {
-  font-size: 2.3rem;
+  /* font-size: 2.3rem; */
   line-height: 1.3;
   color: #ff3366;
-  max-width: 582px;
+  /* max-width: 582px; */
 }
 
 .g-notice-text span {

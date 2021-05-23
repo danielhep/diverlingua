@@ -1,14 +1,14 @@
 <template>
   <div class="hero">
     <div class="hero-t_text">
-      <h3 class="main-title font-display pt-color">
+      <h3 class="text-4xl main-title font-display pt-color">
         {{ mainText }} <br />
         {{ subText }}
       </h3>
     </div>
 
     <div class="hero-b_text text-center">
-      <h5 class="sech-title font-display st-color">
+      <h5 class="sech-title text-3xl font-display st-color">
         {{ secText }} <br />
         {{ secSubText }}
       </h5>
@@ -32,13 +32,13 @@ export default {
 
 <style lang="css">
 .hero {
-  background: url("/public/images/dark-bg.jpg");
+  background: url("/images/dark-bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top center;
   width: 100%;
   /* height: 90vh; */
-  padding: 400px 0px;
+  padding: 450px 0px;
   position: relative;
 }
 
