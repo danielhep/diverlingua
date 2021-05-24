@@ -29,10 +29,9 @@ import firebase from 'firebase/app'
 import 'firebase/firestore'
 import { useFirestore } from '@vueuse/firebase'
 import { useRoute } from 'vue-router'
-import { computed, ref } from 'vue'
+import { computed, provide, ref } from 'vue'
 
 const db = firebase.firestore()
-const storage = firebase.storage()
 
 export default {
   components: {
@@ -40,6 +39,8 @@ export default {
   },
   setup (props, context) {
     const lesson = useFirestore(db.doc(`lessons/${useRoute().params.id}`))
+    provide('lessonID', useRoute().params.id) // provide ID for navbar
+
     const curSectionInd = ref(1)
     const curSection = computed(() => {
       if (lesson.value) {

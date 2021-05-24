@@ -6,7 +6,7 @@
     <sidebar-top
       class="border-b-2 border-text-blue w-full"
     />
-    <div class="flex-grow">
+    <div class="flex-grow w-full">
       <lesson-nav
         :sections="sections"
         @sectionClicked="section => $emit('sectionClicked', section)"
