@@ -1,20 +1,22 @@
 <template>
   <div class="flex">
     <div
-      class="bg-body-bg text-text-white h-screen overflow-y-auto"
+      class="bg-body-bg text-text-white overflow-y-auto absolute bottom-0 top-24"
     >
       <sidebar
         :name="lesson.name"
         v-if="lesson"
+        :sections="lesson.sections"
+        @sectionClicked="(index) => {curSectionInd = index}"
       />
     </div>
-    <div class="flex justify-center flex-grow items-center text-black">
+    <div class="flex justify-center flex-grow items-center text-black ml-64">
       <div class="bg-white overflow-hidden shadow sm:rounded-lg">
         <div class="px-4 py-5 sm:px-6">
           Lesson Slides
         </div>
         <div class="px-4 py-5 sm:p-6">
-          {{ lesson }}
+          {{ curSection }}
         </div>
       </div>
     </div>
@@ -27,6 +29,7 @@ import firebase from 'firebase/app'
 import 'firebase/firestore'
 import { useFirestore } from '@vueuse/firebase'
 import { useRoute } from 'vue-router'
+import { computed, ref } from 'vue'
 
 const db = firebase.firestore()
 const storage = firebase.storage()
@@ -37,7 +40,15 @@ export default {
   },
   setup (props, context) {
     const lesson = useFirestore(db.doc(`lessons/${useRoute().params.id}`))
-    return ({ lesson })
+    const curSectionInd = ref(1)
+    const curSection = computed(() => {
+      if (lesson.value) {
+        return lesson.value.sections.find(item => item.index === curSectionInd.value)
+      } else {
+        return {}
+      }
+    })
+    return ({ lesson, curSectionInd, curSection })
   }
 }
 </script>

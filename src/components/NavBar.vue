@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-navbar-bg  text-text-white border-gray-100 border-b-2">
+  <div class="bg-navbar-bg  text-text-white border-gray-100 border-b-2 h-24">
     <login-modal
       v-if="showLoginModal"
       @close="showLoginModal = false"

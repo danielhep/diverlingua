@@ -1,14 +1,14 @@
 <template>
   <div class="flex flex-col items-center">
-    <ul class="self-stretch text-text-blue border-b-2 py-2 border-text-blue flex-1 space-y-1">
+    <ul class="self-stretch px-2 text-text-blue  flex-1 space-y-1 py-2">
       <li
         v-for="item in buttons"
         :key="item.name"
-        class="flex items-center py-2 text-sm bg-gray-900 font-medium rounded-md cursor-pointer text-indigo-100 hover:bg-opacity-75"
+        class="text-indigo-100 hover:bg-indigo-600 hover:bg-opacity-75 group flex items-center px-2 py-2 text-sm font-medium rounded-md cursor-pointer"
       >
         <svg-icon
           type="mdi"
-          :size="42"
+          :size="38"
           class="mx-2"
           :path="item.icon"
         />
