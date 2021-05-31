@@ -1,5 +1,5 @@
 <template>
-  <div class="flex">
+  <div class="flex w-full">
     <div
       class="bg-body-bg text-text-white overflow-y-auto absolute bottom-0 top-24"
     >
@@ -10,21 +10,15 @@
         @sectionClicked="(index) => {curSectionInd = index}"
       />
     </div>
-    <div class="flex justify-center flex-grow items-center text-black ml-64">
-      <div class="bg-white overflow-hidden shadow sm:rounded-lg">
-        <div class="px-4 py-5 sm:px-6">
-          Lesson Slides
-        </div>
-        <div class="px-4 py-5 sm:p-6">
-          {{ curSection }}
-        </div>
-      </div>
+    <div class="flex justify-center flex-grow items-center text-black ml-64 mt-32">
+      <lesson-card :section="curSection" />
     </div>
   </div>
 </template>
 
 <script>
-import Sidebar from '../components/sidebar/Sidebar.vue'
+import Sidebar from '../components/lesson/sidebar/Sidebar.vue'
+import LessonCard from '../components/lesson/LessonCard.vue'
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 import { useFirestore } from '@vueuse/firebase'
@@ -35,7 +29,7 @@ const db = firebase.firestore()
 
 export default {
   components: {
-    Sidebar
+    Sidebar, LessonCard
   },
   setup (props, context) {
     const lesson = useFirestore(db.doc(`lessons/${useRoute().params.id}`))

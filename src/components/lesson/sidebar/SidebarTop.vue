@@ -26,7 +26,6 @@ export default {
   setup (props) {
     return {
       buttons: [
-        { icon: mdiEye, name: 'Ver todo' },
         { icon: mdiChevronRight, name: 'Siguiente' },
         { icon: mdiChevronLeft, name: 'Anterior' }
       ]

@@ -25,10 +25,10 @@
 </template>
 
 <script>
-import chicken from '../../assets/chicken.svg'
-import chick from '../../assets/chick.svg'
+import chicken from '../../../assets/chicken.svg'
+import chick from '../../../assets/chick.svg'
 import SidebarTop from './SidebarTop.vue'
-import LessonCircle from '../LessonCircle.vue'
+import LessonCircle from '../../LessonCircle.vue'
 import LessonNav from './LessonNav.vue'
 
 export default {

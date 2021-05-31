@@ -45,7 +45,6 @@ export default {
     const lessonID = inject('lessonID')
 
     const navItems = computed(() => {
-      console.log(userProgress.value.completed_sections)
       return props.sections.map(section => {
         let icon
         switch (section.type) {
