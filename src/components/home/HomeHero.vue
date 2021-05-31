@@ -32,7 +32,7 @@ export default {
 
 <style lang="css">
 .hero {
-  background: url("/images/dark-bg.jpg");
+  background: url("/images/canva-photo-editor-2.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top center;
