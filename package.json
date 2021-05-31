@@ -30,7 +30,7 @@
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.23.3",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-vue": "^7.9.0",
+    "eslint-plugin-vue": "^7.10.0",
     "postcss": "^8.3.0",
     "standard": "^16.0.3",
     "tailwindcss": "^2.1.2",
