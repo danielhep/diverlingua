@@ -32,7 +32,8 @@
           type="button"
           class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           :class="{'bg-green-400 text-white hover:bg-green-300': completed,
-                   'text-gray-700 bg-white hover:bg-gray-60': !completed}"
+                   'text-gray-700 bg-white hover:bg-gray-50': !completed}"
+          @click="toggleStatus()"
         >
           <CheckIcon
             v-if="!completed"
@@ -67,14 +68,24 @@ export default {
     const { user } = useAuth()
     const lessonID = inject('lessonID')
     const userProgress = useFirestore(db.doc(`user_progress/${user.value.uid}`), { completed_sections: [] })
+
     const completed = computed(() => {
       return userProgress.value.completed_sections.includes(`${lessonID}_${props.section.index}`)
     })
 
-    // Update progress
-    userProgress.value.update()
+    const toggleStatus = (status) => {
+      if (completed.value === true) { // This section is completed, so uncomplete it
+        db.doc(`user_progress/${user.value.uid}`).update({
+          completed_sections: firebase.firestore.FieldValue.arrayRemove(`${lessonID}_${props.section.index}`)
+        })
+      } else { // it's not completed, so mark it completed
+        db.doc(`user_progress/${user.value.uid}`).update({
+          completed_sections: firebase.firestore.FieldValue.arrayUnion(`${lessonID}_${props.section.index}`)
+        })
+      }
+    }
 
-    return { completed }
+    return { completed, toggleStatus }
   }
 }
 </script>
