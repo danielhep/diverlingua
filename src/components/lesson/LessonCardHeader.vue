@@ -70,6 +70,10 @@ export default {
     const completed = computed(() => {
       return userProgress.value.completed_sections.includes(`${lessonID}_${props.section.index}`)
     })
+
+    // Update progress
+    userProgress.value.update()
+
     return { completed }
   }
 }
