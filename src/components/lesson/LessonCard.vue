@@ -16,15 +16,20 @@
     <div class="px-4 py-4 sm:px-6">
       <!-- Content goes here -->
       <!-- We use less vertical padding on card footers at all sizes than on headers or body sections -->
+      <lesson-card-footer
+        @next="$emit('next')"
+        @previous="$emit('previous')"
+      />
     </div>
   </div>
 </template>
 
 <script>
 import LessonCardHeader from './LessonCardHeader.vue'
-
+import LessonCardFooter from './LessonCardFooter.vue'
 export default {
   props: ['section'],
-  components: { LessonCardHeader }
+  emits: ['next', 'previous'],
+  components: { LessonCardHeader, LessonCardFooter }
 }
 </script>
