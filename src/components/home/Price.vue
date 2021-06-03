@@ -3,8 +3,8 @@
     <div class="">
       <div class="pt-24 flex flex-row">
         <!-- Basic Card -->
-        <div class="w-60 text-center text-white mr-2">
-          <div class="bg-yellow-600 pt-6 pb-10 pl-6 pr-8 rounded-3xl">
+        <div class="w-60 text-center text-white mr-1">
+          <div class="bg-l pt-6 pb-10 pl-6 pr-8 b-rad">
             <h1 class="text-white mb-7 font-semibold text-2xl font-mono">
               Basic
             </h1>
@@ -35,7 +35,7 @@
         </div>
         <!-- StartUp Card -->
         <div class="w-56 text-center text-white transform scale-110">
-          <div class="bg-purple-600 pt-8 pb-10 pl-6 pr-6 rounded-3xl">
+          <div class="bg-m pt-8 pb-10 pl-6 pr-6 b-rad">
             <h1 class="text-white font-semibold text-2xl mb-7 font-mono">
               Intensive
             </h1>
@@ -71,8 +71,8 @@
           </div> -->
         </div>
         <!-- Enterprise Card -->
-        <div class="w-60 text-center text-white ml-2">
-          <div class="bg-red-600 pt-6 pb-10 pl-8 pr-6 rounded-3xl">
+        <div class="w-60 text-center text-white ml-1">
+          <div class="bg-r pt-6 pb-10 pl-8 pr-6 b-rad">
             <h1 class="text-white mb-7 font-semibold text-2xl font-mono">
               Enterprise
             </h1>
