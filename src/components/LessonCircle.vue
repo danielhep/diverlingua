@@ -58,6 +58,8 @@ function getArcValues (index, radius, spacing) {
   }
 }
 
+let oldProgress = 0
+
 export default {
   props: ['progress', 'iconPath'],
   setup (props) {
@@ -77,7 +79,7 @@ export default {
           innerRadius: width / 2 - options.progressThickness,
           outerRadius: width / 2,
           startAngle: 0,
-          endAngle: 0
+          endAngle: Math.PI * oldProgress * 2
         }
 
         const arcObjStop = {
@@ -86,6 +88,8 @@ export default {
           startAngle: 0,
           endAngle: Math.PI * props.progress * 2
         }
+
+        oldProgress = props.progress
 
         svg.select('g:nth-child(3)')
           .attr('transform', `translate(${width / 2}, ${width / 2})`)
