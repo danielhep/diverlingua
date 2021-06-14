@@ -6,7 +6,8 @@ import './index.css'
 import firebase from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/firestore'
-
+import VuePlyr from 'vue-plyr'
+import 'vue-plyr/dist/vue-plyr.css'
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: 'AIzaSyAWR3QqG-mfrQGd9Q1V12knOGS4XsG0C8k',
@@ -23,6 +24,7 @@ firebase.initializeApp(firebaseConfig)
 const app = createApp(App)
 app.use(MotionPlugin)
 app.use(router)
+app.use(VuePlyr)
 app.mount('#app')
 
 firebase.getCurrentUser = () => {
