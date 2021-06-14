@@ -1387,10 +1387,10 @@ es-to-primitive@^1.2.1:
     is-date-object "^1.0.1"
     is-symbol "^1.0.2"
 
-esbuild@^0.11.23:
-  version "0.11.23"
-  resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.11.23.tgz#c42534f632e165120671d64db67883634333b4b8"
-  integrity sha512-iaiZZ9vUF5wJV8ob1tl+5aJTrwDczlvGP0JoMmnpC2B0ppiMCu8n8gmy5ZTGl5bcG081XBVn+U+jP+mPFm5T5Q==
+esbuild@^0.12.5:
+  version "0.12.8"
+  resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.12.8.tgz#ac90da77cb3bfbf49ab815200bcef7ffe1a3348f"
+  integrity sha512-sx/LwlP/SWTGsd9G4RlOPrXnIihAJ2xwBUmzoqe2nWwbXORMQWtAGNJNYLBJJqa3e9PWvVzxdrtyFZJcr7D87g==
 
 escalade@^3.1.1:
   version "3.1.1"
@@ -2932,7 +2932,7 @@ postcss@^6.0.9:
     source-map "^0.6.1"
     supports-color "^5.4.0"
 
-postcss@^8.1.10, postcss@^8.1.6, postcss@^8.2.1, postcss@^8.2.10, postcss@^8.3.0:
+postcss@^8.1.10, postcss@^8.1.6, postcss@^8.2.1, postcss@^8.3.0:
   version "8.3.0"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.3.0.tgz#b1a713f6172ca427e3f05ef1303de8b65683325f"
   integrity sha512-+ogXpdAjWGa+fdYY5BQ96V/6tAo+TdSSIMP5huJBIygdWwKtVoB5JWZ7yUd4xZ8r+8Kvvx4nyg/PQ071H4UtcQ==
@@ -3537,13 +3537,13 @@ vite-plugin-fonts@^0.2.2:
   resolved "https://registry.yarnpkg.com/vite-plugin-fonts/-/vite-plugin-fonts-0.2.2.tgz#48cda78f5ad36907f3de497fa418ffd2b8f2ca83"
   integrity sha512-fhzhsrTiuzlDjSO6g5sV5EVIIvbb8lmsaIY6eUTBM4lcF55x40UBpHrcyvNwIhQG211g0lu83XC7oZlkmvdkMA==
 
-vite@^2.3.3:
-  version "2.3.3"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-2.3.3.tgz#7e88a71abd03985c647789938d784cce0ee3b0fd"
-  integrity sha512-eO1iwRbn3/BfkNVMNJDeANAFCZ5NobYOFPu7IqfY7DcI7I9nFGjJIZid0EViTmLDGwwSUPmRAq3cRBbO3+DsMA==
+vite@^2.3.7:
+  version "2.3.7"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-2.3.7.tgz#3023892419367465e1af1739578f8663d04243b2"
+  integrity sha512-Y0xRz11MPYu/EAvzN94+FsOZHbSvO6FUvHv127CyG7mV6oDoay2bw+g5y9wW3Blf8OY3chaz3nc/DcRe1IQ3Nw==
   dependencies:
-    esbuild "^0.11.23"
-    postcss "^8.2.10"
+    esbuild "^0.12.5"
+    postcss "^8.3.0"
     resolve "^1.19.0"
     rollup "^2.38.5"
   optionalDependencies:
