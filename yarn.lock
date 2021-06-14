@@ -572,12 +572,12 @@
     "@vueuse/shared" "4.11.0"
     vue-demi "*"
 
-"@vueuse/firebase@^4.11.0":
-  version "4.11.0"
-  resolved "https://registry.yarnpkg.com/@vueuse/firebase/-/firebase-4.11.0.tgz#97314f2c37190dc36e633baee616a93c6f7c2ac3"
-  integrity sha512-0dqq52c8KKT1MGzEdDO5zeTyEdmmO3iNWH6J6AcRvjMRDvFmWlSFDIjIZ+orvFO0FbytM1zqOtJJJfVPNzMFow==
+"@vueuse/firebase@^5.0.3":
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/@vueuse/firebase/-/firebase-5.0.3.tgz#0fe5bcccf155e34b8b16b9e53bc50922dab6bf50"
+  integrity sha512-0+GRBfe7xJ5DMMn1BjTSGVc3jfLMCnAUgcNc1tvZIOlNPBSrDZ79lD60RoJvCk8LjhNHSfyfVzHx0BdunXYvcw==
   dependencies:
-    "@vueuse/shared" "4.11.0"
+    "@vueuse/shared" "5.0.3"
     vue-demi "*"
 
 "@vueuse/motion@^1.5.5":
@@ -593,6 +593,13 @@
   version "4.11.0"
   resolved "https://registry.yarnpkg.com/@vueuse/shared/-/shared-4.11.0.tgz#d5c453ac1c15e513d625f8035ec22c7562fd8441"
   integrity sha512-WKyOxTWuAiOLTp9Eg6RYabtZBSiJyt9EgFZEMD8fSlZ1FAckg0Ntya3HLfTDkPBjOqVe3pMdOsAbLwsU+7Fwyw==
+  dependencies:
+    vue-demi "*"
+
+"@vueuse/shared@5.0.3":
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/@vueuse/shared/-/shared-5.0.3.tgz#31613951d5036459650ad8d47a9185e8950ea3c9"
+  integrity sha512-aY93WPygr8H/4RB8YuOmAD83Y+faq7zwW10Kd9i0kD9zf5ysVP+32j09rF/mZVtGCa0CSM8ambPZMsEhCkRbwQ==
   dependencies:
     vue-demi "*"
 
