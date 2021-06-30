@@ -22,7 +22,7 @@
 <script>
 import EditCardFooter from './EditCardFooter.vue'
 import EditCardHeader from './EditCardHeader.vue'
-import { ref, toRef } from 'vue'
+import { computed, ref, toRef } from 'vue'
 import lessonTypes from '../lessonTypes'
 export default {
   props: ['section'],
@@ -35,7 +35,10 @@ export default {
       context.emit('updateSection', editableSection.value)
     }
 
-    const editComponent = lessonTypes.find(type => type.type === section.value.type).editComponent
+    // const editComponent = lessonTypes.find(type => type.type === editableSection.value.type)?.editComponent
+    const editComponent = computed(() => {
+      return lessonTypes.find(type => type.type === editableSection.value.type)?.editComponent
+    })
     return { editableSection, save, editComponent }
   }
 }

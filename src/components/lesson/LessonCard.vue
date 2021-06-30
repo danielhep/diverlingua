@@ -4,6 +4,7 @@
     <lesson-card-header
       :section="section"
       @editModeActivate="$emit('editModeActivate')"
+      @deleteSection="$emit('deleteSection')"
     />
     <div class="px-4 py-5 sm:p-6 flex justify-center">
       <div v-if="loading">
@@ -36,7 +37,7 @@ import { computed, toRef } from 'vue'
 
 export default {
   props: ['section'],
-  emits: ['next', 'previous', 'editModeActivate'],
+  emits: ['next', 'previous', 'editModeActivate', 'deleteSection'],
   components: { LessonCardHeader, LessonCardFooter },
   setup (props) {
     const section = toRef(props, 'section')

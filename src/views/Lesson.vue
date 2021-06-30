@@ -1,5 +1,13 @@
 <template>
   <div class="flex w-full">
+    <simple-alert
+      title="Discard changes?"
+      description="Changing sections without saving will discard your changes. Are you sure you want to leave?"
+      negative-button-text="Cancel"
+      positive-button-text="Discard"
+      :open="showAlertDialog"
+      @buttonPress="alertButtonEvent()"
+    />
     <div
       class="bg-body-bg text-text-white overflow-y-auto absolute bottom-0 top-24"
     >
@@ -7,7 +15,7 @@
         :name="lesson.name"
         v-if="lesson"
         :sections="lesson.sections"
-        @sectionClicked="(index) => {curSectionInd = index}"
+        @sectionClicked="(index) => goToSection(index)"
         @activateEditSection="editSection = true"
         @newSection="newSection()"
         :progress="userProgressPercentage"
@@ -18,7 +26,7 @@
         {{ lesson.name }}
       </div>
       <edit-section-card
-        v-if="editSection"
+        v-if="editSection && curSection"
         :section="curSection"
         @updateSection="updateSection"
       />
@@ -28,6 +36,7 @@
         @next="nextSection()"
         @previous="previousSection()"
         @editModeActivate="editSection = true"
+        @deleteSection="deleteSection(curSection)"
       />
     </div>
   </div>
@@ -37,17 +46,19 @@
 import Sidebar from '../components/lesson/sidebar/Sidebar.vue'
 import LessonCard from '../components/lesson/LessonCard.vue'
 import EditSectionCard from '../components/lesson/editSection/EditSectionCard.vue'
+import SimpleAlert from '../components/ui/SimpleAlert.vue'
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 import { useFirestore, useAuth } from '@vueuse/firebase'
 import { useRoute } from 'vue-router'
 import { computed, provide, ref } from 'vue'
+import { isWindow } from '@vueuse/shared'
 
 const db = firebase.firestore()
 
 export default {
   components: {
-    Sidebar, LessonCard, EditSectionCard
+    Sidebar, LessonCard, EditSectionCard, SimpleAlert
   },
   setup (props, context) {
     // Load the lesson
@@ -66,6 +77,33 @@ export default {
     const previousSection = () => {
       if (curSectionInd.value > 1) {
         curSectionInd.value = curSectionInd.value - 1
+      }
+    }
+
+    let alertButtonEvent
+    const showAlertDialog = ref(false)
+    const showConfirmDiscardDialog = () => {
+      return new Promise((resolve) => {
+        alertButtonEvent = (response) => {
+          resolve(response)
+          showAlertDialog.value = false
+          // true = discard
+          // false = cancel
+        }
+        showAlertDialog.value = true
+      })
+    }
+    const goToSection = async (ind) => {
+      // editSection is hoisted, can be used in this function as long as function is called after ref is created
+      if (editSection.value) {
+        // discard changes?
+        const response = await showConfirmDiscardDialog()
+        if (!response) {
+          curSectionInd.value = ind
+          editSection.value = false
+        }
+      } else {
+        curSectionInd.value = ind
       }
     }
 
@@ -96,25 +134,29 @@ export default {
         }
       }, 0)
     })
-    const newSection = () => {
+    const newSection = async () => {
       const newSectionNumber = maxSectionNumber.value + 1
-      lessonRef.update({
+      await lessonRef.update({
         sections: firebase.firestore.FieldValue.arrayUnion({
-          index: newSectionNumber
+          index: newSectionNumber,
+          title: 'New Section',
+          description: 'New section description.',
+          type: 'reading'
         })
       })
 
-      curSectionInd.value = newSectionNumber.value
+      curSectionInd.value = newSectionNumber
       editSection.value = true
     }
     const updateSection = (newVal) => {
       const oldSections = lesson.value.sections
+      const sectionIndexToEdit = newVal.index
       // firestore does not allow you to update a single itme in an array
       // therefore we have to rebuild the whole array
 
       // create a new array with the current section swapped out
       const updatedSections = oldSections.map(section => {
-        if (section.index === newVal.index) {
+        if (section.index === sectionIndexToEdit) {
           return newVal
         } else {
           return section
@@ -128,7 +170,37 @@ export default {
       editSection.value = false
     }
 
-    return ({ lesson, curSectionInd, curSection, previousSection, nextSection, userProgressPercentage, editSection, newSection, updateSection })
+    const deleteSection = (section) => {
+      lessonRef.update({
+        sections: firebase.firestore.FieldValue.arrayRemove(section)
+      })
+
+      db.doc(`user_progress/${user.value.uid}`).update({
+        completed_sections: firebase.firestore.FieldValue.arrayRemove(`${lessonID}_${section.index}`)
+      })
+
+      if (section.index > 1) {
+        curSectionInd.value = section.index - 1
+      } else {
+        curSectionInd.value = 2
+      }
+    }
+
+    return ({
+      lesson,
+      curSectionInd,
+      curSection,
+      previousSection,
+      nextSection,
+      userProgressPercentage,
+      editSection,
+      newSection,
+      updateSection,
+      deleteSection,
+      alertButtonEvent,
+      showAlertDialog,
+      goToSection
+    })
   }
 }
 </script>

@@ -31,6 +31,7 @@
       type="button"
       class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
       @click="$emit('newSection')"
+      v-if="editMode"
     >
       <PlusIcon
         class="-ml-1 mr-3 h-5 w-5"
@@ -58,6 +59,7 @@ export default {
     const { user } = useAuth()
     const userProgress = useFirestore(db.doc(`user_progress/${user.value.uid}`), { completed_sections: [] })
     const lessonID = inject('lessonID')
+    const editMode = inject('editMode')
 
     const navItems = computed(() => {
       return props.sections.map(section => {
@@ -71,7 +73,7 @@ export default {
         }
       })
     })
-    return { CheckCircleIcon, navItems }
+    return { CheckCircleIcon, navItems, editMode }
   }
 }
 </script>

@@ -58,13 +58,24 @@
             aria-hidden="true"
           />
         </button>
+        <button
+          v-if="editMode"
+          type="button"
+          class="text-gray-700 bg-white hover:bg-gray-50 ml-3 relative inline-flex items-center px-2 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          @click="$emit('deleteSection')"
+        >
+          <TrashIcon
+            class="h-5 w-5 text-gray-400"
+            aria-hidden="true"
+          />
+        </button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { CheckIcon, CheckCircleIcon, PencilIcon } from '@heroicons/vue/solid'
+import { CheckIcon, CheckCircleIcon, PencilIcon, TrashIcon } from '@heroicons/vue/solid'
 import { computed, inject, ref } from 'vue'
 import { useAuth, useFirestore } from '@vueuse/firebase'
 import firebase from 'firebase'
@@ -74,9 +85,9 @@ const db = firebase.firestore()
 export default {
   props: ['section'],
   components: {
-    CheckIcon, CheckCircleIcon, PencilIcon
+    CheckIcon, CheckCircleIcon, PencilIcon, TrashIcon
   },
-  emits: ['editModeActivate'],
+  emits: ['editModeActivate', 'deleteSection'],
   setup (props) {
     const editMode = inject('editMode')
 

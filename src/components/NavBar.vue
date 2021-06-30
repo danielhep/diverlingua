@@ -21,7 +21,7 @@
         >
           <div
             class="flex flex-row items-center font-display uppercase text-gray-300 cursor-pointer px-3 py-2 hover:bg-black bg-opacity-30 rounded-lg"
-            @click="router.push('lessons')"
+            @click="router.push('/lessons')"
           >
             <svg-icon
               type="mdi"
