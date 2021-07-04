@@ -130,3 +130,16 @@
 
 }
 
+.bg-signup{
+  background-color: #00B3CA;
+}
+
+.fp-wrap{
+  background-color: #00B3CA;
+  height: calc(100vh - 96px);
+}
+
+/* .signup-btn{
+  background-color: #19F512;
+} */
+
