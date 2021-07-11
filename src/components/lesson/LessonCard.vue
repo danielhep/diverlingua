@@ -42,6 +42,7 @@ export default {
   setup (props) {
     const section = toRef(props, 'section')
     const loading = computed(() => section.value === undefined)
+    console.log(section.value)
     const viewComponent = computed(() => {
       if (!loading.value) {
         return lessonTypes.find(type => type.type === section.value.type).viewComponent

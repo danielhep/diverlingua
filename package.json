@@ -9,6 +9,7 @@
     "@headlessui/vue": "^1.2.0",
     "@heroicons/vue": "^1.0.1",
     "@jamescoyle/vue-icon": "^0.1.0",
+    "@kangc/v-md-editor": "^2.3.5",
     "@mdi/js": "^5.9.55",
     "@saeris/vue-spinners": "^1.0.8",
     "@tailwindcss/aspect-ratio": "^0.2.0",

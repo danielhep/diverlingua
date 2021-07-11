@@ -6,6 +6,14 @@ import './index.css'
 import firebase from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/firestore'
+
+// markdown editor
+import VueMarkdownEditor from '@kangc/v-md-editor'
+import '@kangc/v-md-editor/lib/style/base-editor.css'
+import vuepressTheme from '@kangc/v-md-editor/lib/theme/vuepress.js'
+import '@kangc/v-md-editor/lib/theme/style/vuepress.css'
+VueMarkdownEditor.use(vuepressTheme)
+
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: 'AIzaSyAWR3QqG-mfrQGd9Q1V12knOGS4XsG0C8k',
@@ -21,6 +29,7 @@ firebase.initializeApp(firebaseConfig)
 
 const app = createApp(App)
 app.use(MotionPlugin)
+app.use(VueMarkdownEditor)
 app.use(router)
 app.mount('#app')
 

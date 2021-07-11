@@ -80,6 +80,7 @@ export default {
       }
     }
 
+    // TODO: Not working
     let alertButtonEvent
     const showAlertDialog = ref(false)
     const showConfirmDiscardDialog = () => {
@@ -148,7 +149,7 @@ export default {
       curSectionInd.value = newSectionNumber
       editSection.value = true
     }
-    const updateSection = (newVal) => {
+    const updateSection = async (newVal) => {
       const oldSections = lesson.value.sections
       const sectionIndexToEdit = newVal.index
       // firestore does not allow you to update a single itme in an array
@@ -163,26 +164,42 @@ export default {
         }
       })
 
-      lessonRef.update({
+      await lessonRef.update({
         sections: updatedSections
       })
 
       editSection.value = false
     }
 
-    const deleteSection = (section) => {
-      lessonRef.update({
-        sections: firebase.firestore.FieldValue.arrayRemove(section)
+    const deleteSection = async (sectionToDelete) => {
+      await db.runTransaction(async (transaction) => {
+        const lesson = await transaction.get(lessonRef)
+        const sections = lesson.data().sections
+
+        // remove the section
+        const removedDeletedSection = sections.filter(s => s.index !== sectionToDelete.index)
+
+        // Decrement the index of every section after the one being deleted
+        const updatedSections = removedDeletedSection.map(section => {
+          if (section.index > sectionToDelete.index) {
+            const newSection = section
+            newSection.index = newSection.index - 1
+            return newSection
+          } else {
+            return section
+          }
+        })
+
+        console.log(updatedSections)
+        await transaction.update(lessonRef, { sections: updatedSections })
       })
 
       db.doc(`user_progress/${user.value.uid}`).update({
-        completed_sections: firebase.firestore.FieldValue.arrayRemove(`${lessonID}_${section.index}`)
+        completed_sections: firebase.firestore.FieldValue.arrayRemove(`${lessonID}_${sectionToDelete.index}`)
       })
 
-      if (section.index > 1) {
-        curSectionInd.value = section.index - 1
-      } else {
-        curSectionInd.value = 2
+      if (sectionToDelete.index > 1) {
+        curSectionInd.value = sectionToDelete.index - 1
       }
     }
 

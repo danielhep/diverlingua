@@ -1,7 +1,7 @@
 import { VideoCameraIcon, DocumentTextIcon } from '@heroicons/vue/outline'
 import EditVideo from './editSection/EditVideo.vue'
 import ViewVideo from './lessonTypes/ViewVideo.vue'
-
+import EditReading from './editSection/EditReading.vue'
 import ViewReading from './lessonTypes/ViewReading.vue'
 export default [
   {
@@ -15,6 +15,7 @@ export default [
     type: 'reading',
     name: 'Reading',
     icon: DocumentTextIcon,
-    viewComponent: ViewReading
+    viewComponent: ViewReading,
+    editComponent: EditReading
   }
 ]
