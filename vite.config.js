@@ -5,6 +5,7 @@ import ViteFonts from 'vite-plugin-fonts'
  * @type {import('vite').UserConfig}
  */
 export default {
+  
   plugins: [
     vue(),
     ViteFonts({
@@ -21,5 +22,11 @@ export default {
   ],
   optimizeDeps: {
     include: ['firebase/app', 'firebase/auth']
-  }
+  },
 }
+
+
+
+
+
+

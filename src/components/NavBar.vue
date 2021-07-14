@@ -5,7 +5,9 @@
       @close="showLoginModal = false"
     />
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="flex justify-between items-center md:justify-start md:space-x-10">
+      <div
+        class="flex justify-between items-center md:justify-between md:space-x-10"
+      >
         <div class="flex justify-start items-center flex-shrink">
           <a href="#">
             <img
@@ -32,7 +34,9 @@
             Lessons
           </div>
           <user-menu-dropdown />
-          <div class="flex flex-row items-center font-display uppercase text-gray-300  px-3 py-2 hover:bg-black bg-opacity-30 rounded-lg">
+          <div
+            class="flex flex-row items-center font-display uppercase text-gray-300 px-3 py-2 hover:bg-black bg-opacity-30 rounded-lg"
+          >
             <svg-icon
               type="mdi"
               :size="46"
@@ -42,7 +46,9 @@
             Schedule
           </div>
         </div>
-        <div class="flex justify-start items-center flex-shrink px-3 py-2 hover:bg-black bg-opacity-30 rounded-lg">
+        <div
+          class="flex justify-start items-center flex-shrink px-3 py-2 hover:bg-black bg-opacity-30 rounded-lg"
+        >
           <div class="text-xl font-display">
             <span v-if="user">¡Hola, {{ user.displayName }}!</span>
             <span
@@ -81,7 +87,9 @@ export default {
     const accountOptions = [
       {
         label: 'Sign out',
-        action: () => { firebase.auth().signOut() }
+        action: () => {
+          firebase.auth().signOut()
+        }
       }
     ]
 
