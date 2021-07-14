@@ -2,8 +2,8 @@
   <div class="forgetpassword">
     <Modal
       v-if="modalActive"
-      :modalMessage="modalMessage"
-      v-on:close-modal="closeModal"
+      :modal-message="modalMessage"
+      @close-modal="closeModal"
     />
     <Loading v-if="loading" />
 
@@ -62,11 +62,16 @@
                     placeholder-gray-500 placeholder-opacity-50
                   "
                   v-model="email"
-                />
+                >
               </div>
             </div>
 
-            <div v-show="error" class="error">{{ this.errorMsg }}</div>
+            <div
+              v-show="error"
+              class="error"
+            >
+              {{ this.errorMsg }}
+            </div>
 
             <div class="text-center sm:col-span-2">
               <button
@@ -98,54 +103,53 @@
   </div>
 </template>
 
-
 <script>
-import firebase from "firebase/app";
-import "firebase/auth";
-import "firebase/firestore";
-import Modal from "../../components/forgetpassword/Modal.vue";
-import Loading from "../../components/ui/Loading.vue";
+import firebase from 'firebase/app'
+import 'firebase/auth'
+import 'firebase/firestore'
+import Modal from '../../components/forgetpassword/Modal.vue'
+import Loading from '../../components/ui/Loading.vue'
 
 export default {
-  name: "ForgetPassword",
-  data() {
+  name: 'ForgetPassword',
+  data () {
     return {
-      email: "",
+      email: '',
       modalActive: false,
-      modalMessage: "",
-      loading: null,
-    };
+      modalMessage: '',
+      loading: null
+    }
   },
 
   components: {
     Modal,
-    Loading,
+    Loading
   },
 
   methods: {
-    resetPassword() {
-      this.loading = true;
+    resetPassword () {
+      this.loading = true
       firebase
         .auth()
         .sendPasswordResetEmail(this.email)
         .then(() => {
           this.modalMessage =
-            "If your account exists, you will receive an email!";
-          this.loading = false;
-          this.modalActive = true;
+            'If your account exists, you will receive an email!'
+          this.loading = false
+          this.modalActive = true
         })
         .catch((err) => {
           // console.log(err.message);
-          this.modalMessage = err.message;
-          this.loading = false;
-          this.modalActive = true;
-        });
+          this.modalMessage = err.message
+          this.loading = false
+          this.modalActive = true
+        })
     },
 
-    closeModal() {
-      this.modalActive = !this.modalActive;
-      this.email = "";
-    },
-  },
-};
+    closeModal () {
+      this.modalActive = !this.modalActive
+      this.email = ''
+    }
+  }
+}
 </script>

@@ -54,7 +54,7 @@
                     placeholder-gray-500 placeholder-opacity-50
                   "
                   v-model="firstName"
-                />
+                >
               </div>
             </div>
 
@@ -79,7 +79,7 @@
                     placeholder-gray-500 placeholder-opacity-50
                   "
                   v-model="lastName"
-                />
+                >
               </div>
             </div>
 
@@ -104,7 +104,7 @@
                     placeholder-gray-500 placeholder-opacity-50
                   "
                   v-model="country"
-                />
+                >
               </div>
             </div>
 
@@ -129,7 +129,7 @@
                     placeholder-gray-500 placeholder-opacity-50
                   "
                   v-model="city"
-                />
+                >
               </div>
             </div>
 
@@ -154,7 +154,7 @@
                     placeholder-gray-500 placeholder-opacity-50
                   "
                   v-model="profession"
-                />
+                >
               </div>
             </div>
 
@@ -179,7 +179,7 @@
                     placeholder-gray-500 placeholder-opacity-50
                   "
                   v-model="email"
-                />
+                >
               </div>
             </div>
 
@@ -204,7 +204,7 @@
                     placeholder-gray-500 placeholder-opacity-50
                   "
                   v-model="password"
-                />
+                >
               </div>
             </div>
 
@@ -227,8 +227,11 @@
                       text-indigo-600
                       border-gray-300
                     "
-                  />
-                  <label for="budget_under_25k" class="ml-3">
+                  >
+                  <label
+                    for="budget_under_25k"
+                    class="ml-3"
+                  >
                     <span class="block text-sm pt-color">Female</span>
                   </label>
                 </div>
@@ -247,8 +250,11 @@
                       text-indigo-600
                       border-gray-300
                     "
-                  />
-                  <label for="budget_25k-50k" class="ml-3">
+                  >
+                  <label
+                    for="budget_25k-50k"
+                    class="ml-3"
+                  >
                     <span class="block text-sm pt-color">Male</span>
                   </label>
                 </div>
@@ -267,8 +273,11 @@
                       text-indigo-600
                       border-gray-300
                     "
-                  />
-                  <label for="budget_50k-100k" class="ml-3">
+                  >
+                  <label
+                    for="budget_50k-100k"
+                    class="ml-3"
+                  >
                     <span class="block text-sm pt-color">Other</span>
                   </label>
                 </div>
@@ -280,8 +289,7 @@
                 <label
                   for="phone"
                   class="block text-base pt-color font-medium mb-3"
-                  >Date of birth</label
-                >
+                >Date of birth</label>
               </div>
 
               <div class="flex justify-start">
@@ -306,7 +314,7 @@
                         rounded-3xl
                         placeholder-gray-500 placeholder-opacity-50
                       "
-                    />
+                    >
                   </div>
                 </div>
 
@@ -331,7 +339,7 @@
                         rounded-3xl
                         placeholder-gray-500 placeholder-opacity-50
                       "
-                    />
+                    >
                   </div>
                 </div>
 
@@ -356,7 +364,7 @@
                         rounded-3xl
                         placeholder-gray-500 placeholder-opacity-50
                       "
-                    />
+                    >
                   </div>
                 </div>
               </div>
@@ -367,8 +375,7 @@
                 <label
                   for="how_can_we_help"
                   class="block text-base pt-color font-medium mb-3"
-                  >Hobbies</label
-                >
+                >Hobbies</label>
               </div>
               <div class="mt-1">
                 <input
@@ -390,7 +397,7 @@
                     rounded-3xl
                     placeholder-gray-500 placeholder-opacity-50
                   "
-                />
+                >
               </div>
             </div>
 
@@ -398,8 +405,7 @@
               <label
                 for="how_did_you_hear_about_us"
                 class="block text-base pt-color font-medium mb-3"
-                >Why do you want to learn Spanish?</label
-              >
+              >Why do you want to learn Spanish?</label>
               <div class="mt-1">
                 <input
                   type="text"
@@ -419,7 +425,7 @@
                     rounded-3xl
                     placeholder-gray-500 placeholder-opacity-50
                   "
-                />
+                >
               </div>
             </div>
 
@@ -442,8 +448,11 @@
                       text-indigo-600
                       border-gray-300
                     "
-                  />
-                  <label for="budget_under_25k" class="ml-3">
+                  >
+                  <label
+                    for="budget_under_25k"
+                    class="ml-3"
+                  >
                     <span class="block text-sm pt-color">None</span>
                   </label>
                 </div>
@@ -462,8 +471,11 @@
                       text-indigo-600
                       border-gray-300
                     "
-                  />
-                  <label for="budget_25k-50k" class="ml-3">
+                  >
+                  <label
+                    for="budget_25k-50k"
+                    class="ml-3"
+                  >
                     <span class="block text-sm pt-color">Beginner</span>
                   </label>
                 </div>
@@ -482,8 +494,11 @@
                       text-indigo-600
                       border-gray-300
                     "
-                  />
-                  <label for="budget_50k-100k" class="ml-3">
+                  >
+                  <label
+                    for="budget_50k-100k"
+                    class="ml-3"
+                  >
                     <span class="block text-sm pt-color">Intermediate</span>
                   </label>
                 </div>
@@ -509,8 +524,11 @@
                       text-indigo-600
                       border-gray-300
                     "
-                  />
-                  <label for="budget_under_25k" class="ml-3">
+                  >
+                  <label
+                    for="budget_under_25k"
+                    class="ml-3"
+                  >
                     <span class="block text-sm pt-color">Free Trail</span>
                   </label>
                 </div>
@@ -529,17 +547,25 @@
                       text-indigo-600
                       border-gray-300
                     "
-                  />
-                  <label for="budget_25k-50k" class="ml-3">
-                    <span class="block text-sm pt-color"
-                      >Paid subscription</span
-                    >
+                  >
+                  <label
+                    for="budget_25k-50k"
+                    class="ml-3"
+                  >
+                    <span
+                      class="block text-sm pt-color"
+                    >Paid subscription</span>
                   </label>
                 </div>
               </div>
             </fieldset>
 
-            <div v-show="error" class="error">{{ this.errorMsg }}</div>
+            <div
+              v-show="error"
+              class="error"
+            >
+              {{ this.errorMsg }}
+            </div>
 
             <div class="text-center sm:col-span-2 mt-10">
               <button
@@ -571,70 +597,69 @@
   </div>
 </template>
 
-
 <script>
-import firebase from "firebase/app";
-import "firebase/auth";
-import "firebase/firestore";
+import firebase from 'firebase/app'
+import 'firebase/auth'
+import 'firebase/firestore'
 // import { db } from "../../main";
 
 export default {
-  name: "Register",
-  data() {
+  name: 'Register',
+  data () {
     return {
-      firstName: "",
-      lastName: "",
-      country: "",
-      city: "",
-      profession: "",
-      email: "",
-      password: "",
-      gender: "",
-      birthday: "",
-      birthmonth: "",
-      birthyear: "",
-      hobby: "",
-      learnspanish: "",
-      spanishlevel: "",
-      startcourse: "",
+      firstName: '',
+      lastName: '',
+      country: '',
+      city: '',
+      profession: '',
+      email: '',
+      password: '',
+      gender: '',
+      birthday: '',
+      birthmonth: '',
+      birthyear: '',
+      hobby: '',
+      learnspanish: '',
+      spanishlevel: '',
+      startcourse: '',
       error: null,
-      errorMsg: "",
-    };
+      errorMsg: ''
+    }
   },
 
   methods: {
-    async register() {
+    async register () {
       if (
-        this.firstName !== "" &&
-        this.lastName !== "" &&
-        this.country !== "" &&
-        this.city !== "" &&
-        this.profession !== "" &&
-        this.email !== "" &&
-        this.password !== "" &&
-        this.gender !== "" &&
-        this.birthday !== "" &&
-        this.birthmonth !== "" &&
-        this.birthyear !== "" &&
-        this.hobby !== "" &&
-        this.learnspanish !== "" &&
-        this.spanishlevel !== "" &&
-        this.startcourse !== ""
+        this.firstName !== '' &&
+        this.lastName !== '' &&
+        this.country !== '' &&
+        this.city !== '' &&
+        this.profession !== '' &&
+        this.email !== '' &&
+        this.password !== '' &&
+        this.gender !== '' &&
+        this.birthday !== '' &&
+        this.birthmonth !== '' &&
+        this.birthyear !== '' &&
+        this.hobby !== '' &&
+        this.learnspanish !== '' &&
+        this.spanishlevel !== '' &&
+        this.startcourse !== ''
       ) {
         // console.log(this.firstName, this.lastName, this.gender);
-        this.error = false;
-        this.errorMsg = "";
+        this.error = false
+        this.errorMsg = ''
 
-        const firebaseAuth = await firebase.auth();
+        const firebaseAuth = await firebase.auth()
         const createUser = await firebaseAuth.createUserWithEmailAndPassword(
           this.email,
           this.password
-        );
-        const result = await createUser;
+        )
+        const result = await createUser
         const dataBase = firebase
           .firestore()
-          .collection("user_data")
-          .doc(result.user.uid);
+          .collection('user_data')
+          .doc(result.user.uid)
         await dataBase.set({
           firstName: this.firstName,
           lastName: this.lastName,
@@ -650,15 +675,14 @@ export default {
           hobby: this.hobby,
           learnspanish: this.learnspanish,
           spanishlevel: this.spanishlevel,
-          startcourse: this.startcourse,
-        });
-        this.$router.push({ name: "home" });
-        return;
+          startcourse: this.startcourse
+        })
+        this.$router.push({ name: 'home' })
+        return
       }
-      this.error = true;
-      this.errorMsg = "Please fill out all the fields!";
-      return;
-    },
-  },
-};
+      this.error = true
+      this.errorMsg = 'Please fill out all the fields!'
+    }
+  }
+}
 </script>
