@@ -37,8 +37,6 @@
           "
         >
           <form
-            action="#"
-            method="POST"
             class="mt-9 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
           >
             <div class="sm:col-span-2">
