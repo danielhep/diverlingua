@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+
+@layer base {
+  @font-face {
+    font-family: 'Montserrat', sans-serif;
+    src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap');
+  }
+}
+
+
 @responsive {
   .text-shadow-thin {
     text-shadow: 1px 1px 0 rgba(0,0,0,0.40);
@@ -65,4 +76,70 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+/* /////////Base Color /////// */
+.pt-color{
+  color: #ffffff;
+}
+
+.st-color{
+  color: #E2E3E5;
+}
+
+.main-title{
+  /* font-size: 2.6rem; */
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.sech-title{
+  /* font-size: 1.8rem; */
+  line-height: 2;
+  font-weight: 100;
+}
+
+.b-rad{
+  border-radius: 2.25rem;
+}
+
+.copy-bg{
+  background-color: #261A43;
+}
+
+
+.b-rad{
+  border-radius: 3.5rem;
+}
+
+.bg-l{
+  background: linear-gradient(to bottom, #63D2EB 0%, #396A9C 100%);
+  box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.04);
+}
+
+.bg-m{
+  background: linear-gradient(to bottom, #FFCC66 0%, #FF3366 100%);
+  box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.04);
+
+}
+
+.bg-r{
+  background: linear-gradient(to bottom, #E691E6 0%, #993399 100%);
+  box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.04);
+
+}
+
+.bg-signup{
+  background-color: #00B3CA;
+}
+
+.fp-wrap{
+  background-color: #00B3CA;
+  height: calc(100vh - 96px);
+}
+
+/* .signup-btn{
+  background-color: #19F512;
+} */
 

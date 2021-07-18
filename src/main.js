@@ -20,6 +20,8 @@ const firebaseConfig = {
 }
 firebase.initializeApp(firebaseConfig)
 
+const db = firebase.firestore()
+
 const app = createApp(App)
 app.use(MotionPlugin)
 app.use(router)
@@ -27,9 +29,11 @@ app.mount('#app')
 
 firebase.getCurrentUser = () => {
   return new Promise((resolve, reject) => {
-    const unsubscribe = firebase.auth().onAuthStateChanged(user => {
+    const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
       unsubscribe()
       resolve(user)
     }, reject)
   })
 }
+
+export { db }
