@@ -11,7 +11,10 @@
               alt=""
             >
           </div>
-          <div class="ml-4">
+          <div
+            class="ml-4"
+            v-if="!loading"
+          >
             <h3 class="text-lg leading-6 font-medium text-gray-900 flex flex-row">
               {{ section.title }}
               <CheckCircleIcon
@@ -20,9 +23,7 @@
               />
             </h3>
             <p class="text-sm text-gray-500">
-              <a href="#">
-                {{ section.description }}
-              </a>
+              {{ section.description }}
             </p>
           </div>
         </div>
@@ -46,14 +47,36 @@
             {{ completed? 'Mark Uncompleted':'Mark Completed' }}
           </span>
         </button>
+        <button
+          v-if="editMode"
+          type="button"
+          class="text-gray-700 bg-white hover:bg-gray-50 ml-3 relative inline-flex items-center px-2 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          @click="$emit('editModeActivate')"
+        >
+          <PencilIcon
+            class="h-5 w-5 text-gray-400"
+            aria-hidden="true"
+          />
+        </button>
+        <button
+          v-if="editMode"
+          type="button"
+          class="text-gray-700 bg-white hover:bg-gray-50 ml-3 relative inline-flex items-center px-2 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          @click="$emit('deleteSection')"
+        >
+          <TrashIcon
+            class="h-5 w-5 text-gray-400"
+            aria-hidden="true"
+          />
+        </button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { CheckIcon, CheckCircleIcon } from '@heroicons/vue/solid'
-import { computed, inject } from 'vue'
+import { CheckIcon, CheckCircleIcon, PencilIcon, TrashIcon } from '@heroicons/vue/solid'
+import { computed, inject, ref } from 'vue'
 import { useAuth, useFirestore } from '@vueuse/firebase'
 import firebase from 'firebase'
 
@@ -62,15 +85,24 @@ const db = firebase.firestore()
 export default {
   props: ['section'],
   components: {
-    CheckIcon, CheckCircleIcon
+    CheckIcon, CheckCircleIcon, PencilIcon, TrashIcon
   },
+  emits: ['editModeActivate', 'deleteSection'],
   setup (props) {
     const { user } = useAuth(firebase.auth)
+    const editMode = inject('editMode')
+
     const lessonID = inject('lessonID')
     const userProgress = useFirestore(db.doc(`user_progress/${user.value.uid}`), { completed_sections: [] })
 
+    const loading = computed(() => props.section === undefined)
+    // const loading = ref(true)
     const completed = computed(() => {
-      return userProgress.value.completed_sections.includes(`${lessonID}_${props.section.index}`)
+      if (!loading.value) {
+        return userProgress.value.completed_sections.includes(`${lessonID}_${props.section.index}`)
+      } else {
+        return false
+      }
     })
 
     const toggleStatus = (status) => {
@@ -85,7 +117,7 @@ export default {
       }
     }
 
-    return { completed, toggleStatus }
+    return { completed, toggleStatus, editMode, loading }
   }
 }
 </script>

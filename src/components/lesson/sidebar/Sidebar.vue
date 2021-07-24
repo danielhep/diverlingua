@@ -7,6 +7,7 @@
       <lesson-nav
         :sections="sections"
         @sectionClicked="section => $emit('sectionClicked', section)"
+        @newSection="$emit('newSection')"
       />
     </div>
     <div class="m-6 flex flex-col items-center border-t-2 border-text-blue w-64 pt-4">
@@ -31,7 +32,7 @@ import LessonNav from './LessonNav.vue'
 export default {
   components: { SidebarTop, LessonCircle, LessonNav },
   props: { name: String, sections: String, progress: Number },
-  emits: ['sectionClicked'],
+  emits: ['sectionClicked', 'newSection'],
   setup () {
     return {
       chicken,

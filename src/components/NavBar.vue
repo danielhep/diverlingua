@@ -23,7 +23,7 @@
         >
           <div
             class="flex flex-row items-center font-display uppercase text-gray-300 cursor-pointer px-3 py-2 hover:bg-black bg-opacity-30 rounded-lg"
-            @click="router.push('lessons')"
+            @click="router.push('/lessons')"
           >
             <svg-icon
               type="mdi"
@@ -58,6 +58,12 @@
             >Sign Up / Sign In</span>
           </div>
         </div>
+        <div
+          @click="$emit('editModeToggle')"
+          class="flex flex-row items-center font-display text-gray-300  px-3 py-2 hover:bg-black bg-opacity-30 rounded-lg cursor-pointer"
+        >
+          {{ editMode ? 'Edit Mode' : 'User Mode' }}
+        </div>
       </div>
     </div>
   </div>
@@ -67,7 +73,7 @@ import firebase from 'firebase/app'
 import SvgIcon from '@jamescoyle/vue-icon'
 import { useAuth } from '@vueuse/firebase'
 import { mdiAccount, mdiVideo, mdiMenu, mdiChairSchool } from '@mdi/js'
-import { ref } from 'vue'
+import { inject, ref } from 'vue'
 import LoginModal from './users/LoginModal.vue'
 import UserMenuDropdown from './dropdown/UserMenuDropdown.vue'
 import router from '../router'
@@ -79,6 +85,7 @@ export default {
     LoginModal,
     UserMenuDropdown
   },
+  emits: ['editModeToggle'],
   setup (props) {
     const showLoginModal = ref(false)
 
@@ -93,12 +100,15 @@ export default {
       }
     ]
 
+    const editMode = inject('editMode')
+
     return {
       showLoginModal,
       user,
       isAuthenticated,
       accountOptions,
       router,
+      editMode,
       icons: { mdiAccount, mdiVideo, mdiMenu, mdiChairSchool }
     }
   }
