@@ -70,6 +70,7 @@ export default {
 
     const { user } = useAuth(firebase.auth)
     const userProgress = useFirestore(db.doc(`user_progress/${user.value.uid}`), { completed_sections: [] })
+    console.log(userProgress.value)
     const completedSectionsCount = computed(() => {
       const completedSections = userProgress.value.completed_sections.filter(item => {
         return (item.match(/(.*)_/)[1] === useRoute().params.id)
