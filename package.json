@@ -14,11 +14,11 @@
     "@saeris/vue-spinners": "^1.0.8",
     "@tailwindcss/aspect-ratio": "^0.2.0",
     "@tailwindcss/forms": "^0.3.2",
-    "@vueuse/core": "^4.11.0",
-    "@vueuse/firebase": "^4.11.0",
+    "@vueuse/core": "^5.1.4",
+    "@vueuse/firebase": "^5.1.4",
     "@vueuse/motion": "^1.5.5",
     "d3": "^6.7.0",
-    "firebase": "^8.6.2",
+    "firebase": "^8.7.1",
     "vue": "^3.0.11",
     "vue-router": "^4",
     "vue3-click-away": "^1.2.1"
@@ -35,7 +35,7 @@
     "postcss": "^8.3.0",
     "standard": "^16.0.3",
     "tailwindcss": "^2.1.2",
-    "vite": "^2.3.3",
+    "vite": "^2.4.3",
     "vite-plugin-fonts": "^0.2.2"
   }
 }
