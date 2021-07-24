@@ -12,7 +12,7 @@
     "@kangc/v-md-editor": "^2.3.5",
     "@mdi/js": "^5.9.55",
     "@saeris/vue-spinners": "^1.0.8",
-    "@tailwindcss/aspect-ratio": "^0.2.0",
+    "@tailwindcss/aspect-ratio": "^0.2.1",
     "@tailwindcss/forms": "^0.3.3",
     "@vueuse/core": "^5.1.4",
     "@vueuse/firebase": "^5.1.4",
