@@ -77,7 +77,7 @@ export default {
     SvgIcon
   },
   setup () {
-    const { isAuthenticated, user } = useAuth()
+    const { isAuthenticated, user } = useAuth(firebase.auth)
     return {
       user,
       router,

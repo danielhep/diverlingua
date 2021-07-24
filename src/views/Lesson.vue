@@ -68,7 +68,7 @@ export default {
       }
     })
 
-    const { user } = useAuth()
+    const { user } = useAuth(firebase.auth)
     const userProgress = useFirestore(db.doc(`user_progress/${user.value.uid}`), { completed_sections: [] })
     const completedSectionsCount = computed(() => {
       const completedSections = userProgress.value.completed_sections.filter(item => {

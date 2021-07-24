@@ -65,7 +65,7 @@ export default {
     CheckIcon, CheckCircleIcon
   },
   setup (props) {
-    const { user } = useAuth()
+    const { user } = useAuth(firebase.auth)
     const lessonID = inject('lessonID')
     const userProgress = useFirestore(db.doc(`user_progress/${user.value.uid}`), { completed_sections: [] })
 

@@ -82,7 +82,7 @@ export default {
   setup (props) {
     const showLoginModal = ref(false)
 
-    const { isAuthenticated, user } = useAuth()
+    const { isAuthenticated, user } = useAuth(firebase.auth)
 
     const accountOptions = [
       {
