@@ -51,8 +51,7 @@ import firebase from 'firebase/app'
 import 'firebase/firestore'
 import { useFirestore, useAuth } from '@vueuse/firebase'
 import { useRoute } from 'vue-router'
-import { computed, provide, ref } from 'vue'
-import { isWindow } from '@vueuse/shared'
+import { computed, provide, ref, unref } from 'vue'
 
 const db = firebase.firestore()
 
@@ -114,9 +113,12 @@ export default {
     })
 
     const { user } = useAuth(firebase.auth)
-    const userProgress = useFirestore(db.doc(`user_progress/${user.value.uid}`), { completed_sections: [] })
-    console.log(userProgress.value)
+    const userProgressDoc = db.doc(`user_progress/${user.value.uid}`)
+    const userProgress = useFirestore(userProgressDoc, { completed_sections: [] })
     const completedSectionsCount = computed(() => {
+      if (userProgress.value === null) {
+        return 0
+      }
       const completedSections = userProgress.value.completed_sections.filter(item => {
         return (item.match(/(.*)_/)[1] === lessonID) // just get a list of completed sections for this lesson
       })

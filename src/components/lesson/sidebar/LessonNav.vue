@@ -49,6 +49,8 @@ import { useAuth, useFirestore } from '@vueuse/firebase'
 import firebase from 'firebase/app'
 import lessonTypes from '../lessonTypes'
 
+import { useAllUserProgress } from '../../../use/useUserProgress'
+
 const db = firebase.firestore()
 
 export default {
@@ -57,7 +59,8 @@ export default {
   components: { PlusIcon },
   setup (props) {
     const { user } = useAuth(firebase.auth)
-    const userProgress = useFirestore(db.doc(`user_progress/${user.value.uid}`), { completed_sections: [] })
+    // const userProgress = useFirestore(db.doc(`user_progress/${user.value.uid}`), { completed_sections: [] })
+    const userProgress = useAllUserProgress()
     const lessonID = inject('lessonID')
     const editMode = inject('editMode')
 
@@ -67,7 +70,7 @@ export default {
 
         return {
           title: section.title,
-          completed: userProgress.value.completed_sections.includes(`${lessonID}_${section.index}`),
+          completed: userProgress.value.includes(`${lessonID}_${section.index}`),
           icon,
           index: section.index
         }

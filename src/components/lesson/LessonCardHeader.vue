@@ -80,6 +80,8 @@ import { computed, inject, ref } from 'vue'
 import { useAuth, useFirestore } from '@vueuse/firebase'
 import firebase from 'firebase'
 
+import { useAllUserProgress } from '../../use/useUserProgress'
+
 const db = firebase.firestore()
 
 export default {
@@ -93,13 +95,13 @@ export default {
     const editMode = inject('editMode')
 
     const lessonID = inject('lessonID')
-    const userProgress = useFirestore(db.doc(`user_progress/${user.value.uid}`), { completed_sections: [] })
+    const userProgress = useAllUserProgress()
 
     const loading = computed(() => props.section === undefined)
     // const loading = ref(true)
     const completed = computed(() => {
       if (!loading.value) {
-        return userProgress.value.completed_sections.includes(`${lessonID}_${props.section.index}`)
+        return userProgress.value.includes(`${lessonID}_${props.section.index}`)
       } else {
         return false
       }
