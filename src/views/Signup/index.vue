@@ -10,8 +10,15 @@
         <div
           class=" max-w-3xl bg-gray-50 mx-auto my-10 mt-0 px-10 py-7 rounded-xl shadow-sm"
         >
-          <Steps />
-          <sign-up-stage-1 />
+          <Steps
+            :stage="stage"
+            :steps="signupSteps"
+          />
+          <!-- {{ signupSteps }} -->
+          <sign-up-stage-1
+            v-if="stage === 0"
+            @continue="recordData"
+          />
         </div>
       </div>
     </div>
@@ -20,6 +27,7 @@
 
 <script>
 import firebase from 'firebase/app'
+import { ref } from 'vue'
 import 'firebase/auth'
 import 'firebase/firestore'
 // import { db } from "../../main";
@@ -28,29 +36,22 @@ import SignUpStage1 from '../../components/users/SignUpStage1.vue'
 
 export default {
   name: 'Register',
-  components: { Steps, SignUpStage1 },
-  data () {
+  setup () {
+    const stage = ref(0)
+    const signupSteps = [
+      { id: 'Step 1', name: 'Job details', href: '#', status: 'complete', index: 0 },
+      { id: 'Step 2', name: 'Application form', href: '#', status: 'current', index: 1 },
+      { id: 'Step 3', name: 'Preview', href: '#', status: 'upcoming', index: 2 }
+    ]
+    const recordData = (data) => {
+      stage.value = stage.value + 1
+    }
     return {
-      firstName: '',
-      lastName: '',
-      country: '',
-      city: '',
-      profession: '',
-      email: '',
-      password: '',
-      gender: '',
-      birthday: '',
-      birthmonth: '',
-      birthyear: '',
-      hobby: '',
-      learnspanish: '',
-      spanishlevel: '',
-      startcourse: '',
-      error: null,
-      errorMsg: ''
+      stage,
+      signupSteps
     }
   },
-
+  components: { Steps, SignUpStage1 },
   methods: {
     async register () {
       if (

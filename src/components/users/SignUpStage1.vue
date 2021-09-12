@@ -10,12 +10,14 @@
         id="email"
         autocomplete="organization"
         placeholder="E-mail"
+        v-model="email"
       >
       <input
         type="password"
         name="password"
         id="password"
         placeholder="Password"
+        v-model="password"
       >
       <button
         type="submit"
@@ -39,8 +41,19 @@
 </template>
 
 <script>
+import { ref } from 'vue'
 export default {
+  setup (context) {
+    const email = ref('')
+    const password = ref('')
+    const submit = () => {
+      context.$emit('continue', { email, password })
+    }
 
+    return {
+      email, password, submit
+    }
+  }
 }
 </script>
 
